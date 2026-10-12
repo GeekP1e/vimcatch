@@ -4,12 +4,20 @@ Interactive terminal-style Vim training in the browser. VimCatch combines a
 simulated editor, 56 progressive lessons, timed practice and a compact command
 reference.
 
+**56 lessons · Time Attack · Vim Golf · Import your own lessons**
+
+![VimCatch training: a guided Vim lesson with command explanations and an interactive editor](images/screenshots/training.png)
+
 ## About this project
 
 VimCatch is a modified version of [VIM Master](https://github.com/renzorlive/vimmaster),
-originally created by [RNZ](https://github.com/renzorlive). Many thanks to RNZ
-for publishing the original project under the MIT License and making further
-development possible.
+originally created by [RNZ / renzorlive](https://github.com/renzorlive).
+
+**Thank you, RNZ, for the idea of learning Vim through short, interactive
+challenges, and for building the original game.** Your work provided the
+inspiration and foundation for VimCatch. Publishing VIM Master under the MIT
+License made it possible to build on that idea and share this edition with
+others.
 
 This edition is maintained by **GeekP1e**. Compared with the original project,
 it includes:
@@ -30,6 +38,38 @@ solution is also executed automatically by the contract and golden test suites.
 - Searchable command reference
 - Local progress, XP, combos and achievements
 - JSON-driven lesson content with automatic validation
+
+## Screenshots
+
+### Practice Arena
+
+Work toward the target text shown beside your editor. Race the timer in
+**Time Attack**, or find a shorter solution and improve your personal best in
+**Vim Golf**.
+
+| Time Attack | Vim Golf |
+| :---: | :---: |
+| <a href="images/screenshots/time-attack.png"><img src="images/screenshots/time-attack.png" width="560" alt="Time Attack: timed Vim practice with editable text and a read-only target"></a> | <a href="images/screenshots/vim-golf.png"><img src="images/screenshots/vim-golf.png" width="560" alt="Vim Golf: eight fixed puzzles, keystroke counts and personal bests"></a> |
+
+### Course map
+
+Choose any lesson, revisit a command and track progress across the course.
+
+<details>
+<summary><strong>View the course map</strong></summary>
+
+![Course map: lessons grouped into Basics, Movement, Editing, Visual, Search and Files](images/screenshots/course-map.png)
+
+</details>
+
+### Your own lessons
+
+Download a JSON example, define a task and import it. Imported lessons appear
+in **My lessons**, stay saved across reloads and can be deleted individually.
+
+| Lesson files | My lessons |
+| :---: | :---: |
+| <a href="images/screenshots/lesson-files.png"><img src="images/screenshots/lesson-files.png" width="560" alt="Lesson files dialog: import a lesson or download a JSON example"></a> | <a href="images/screenshots/custom-lessons.png"><img src="images/screenshots/custom-lessons.png" width="560" alt="My lessons: an imported lesson with its progress and a delete button"></a> |
 
 ## Quick start
 
@@ -102,6 +142,7 @@ engine, tests and documentation are also welcome.
 ```text
 content/     lesson definitions and schema
 css/         application styles
+images/      app icon and README screenshots
 js/main.js   application entry point
 js/core/     Vim commands and game state
 js/lessons/  lesson loading, import, objectives and generated content

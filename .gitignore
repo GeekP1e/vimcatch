@@ -2,3 +2,8 @@ node_modules
 dist
 coverage
 .env
+.env.*
+!.env.example
+.vite/
+*.log
+.DS_Store
