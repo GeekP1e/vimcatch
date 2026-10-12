@@ -1,0 +1,54 @@
+{
+  "id": "lesson-search-inner-word-mix",
+  "version": 1,
+  "name": "Find and Remove a Word",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "intermediate",
+    "tags": [
+      "normal",
+      "advanced"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-delete-inner-word-diw",
+      "lesson-search-forward"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 34
+  },
+  "instructions": "Find 'mistake' with /mistake and Enter. Press l to move inside it, then diw to remove only the word.",
+  "initialContent": [
+    "keep this line",
+    "remove mistake here"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "keep this line",
+    "remove  here"
+  ],
+  "solution": [
+    "/",
+    "m",
+    "i",
+    "s",
+    "t",
+    "a",
+    "k",
+    "e",
+    "Enter",
+    "l",
+    "d",
+    "i",
+    "w"
+  ],
+  "focusCommand": "/ → l → diw"
+}

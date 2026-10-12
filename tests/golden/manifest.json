@@ -1,0 +1,198 @@
+[
+    {
+        "lessonId": "lesson-how-to-exit-ex-commands",
+        "description": "Basic Movement: How to Exit",
+        "tags": [
+            "normal",
+            "ex"
+        ],
+        "solution": [
+            ":",
+            "q",
+            "Enter"
+        ],
+        "timeout": 5000,
+        "maxSteps": 150,
+        "finalBuffer": [
+            "# project.env",
+            "APP_NAME=vimcatch",
+            "APP_ENV=development",
+            "LOG_LEVEL=info"
+        ],
+        "finalCursor": {
+            "row": 0,
+            "col": 0
+        },
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-basic-movement",
+        "description": "Basic Movement: Navigate to dollar sign",
+        "tags": [
+            "normal",
+            "movement"
+        ],
+        "solution": [
+            "j",
+            "j",
+            "j",
+            "j",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l",
+            "l"
+        ],
+        "timeout": 5000,
+        "maxSteps": 150,
+        "finalBuffer": [
+            "function checkout(cart) {",
+            "  const subtotal = sum(cart);",
+            "  const tax = subtotal * 0.1;",
+            "  const total = subtotal + tax;",
+            "  logger.info('checkout ready');",
+            "  return total; // $",
+            "}"
+        ],
+        "finalCursor": {
+            "row": 5,
+            "col": 19
+        },
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-delete-inner-word-diw",
+        "description": "Deletion: Delete Inner Word (diw)",
+        "tags": [
+            "normal",
+            "deletion",
+            "text-object"
+        ],
+        "solution": [
+            "d",
+            "i",
+            "w"
+        ],
+        "timeout": 5000,
+        "maxSteps": 15,
+        "finalBuffer": [
+            "npm run  build"
+        ],
+        "winCondition": "exactMatch"
+    },
+    {
+        "lessonId": "lesson-change-inner-word-ciw",
+        "description": "Editing: Change Inner Word (ciw)",
+        "tags": [
+            "normal",
+            "editing",
+            "text-object"
+        ],
+        "solution": [
+            "c",
+            "i",
+            "w",
+            "p",
+            "r",
+            "o",
+            "d",
+            "u",
+            "c",
+            "t",
+            "i",
+            "o",
+            "n",
+            "Escape"
+        ],
+        "timeout": 5000,
+        "maxSteps": 20,
+        "finalBuffer": [
+            "deploy production release"
+        ],
+        "winCondition": "exactMatch"
+    },
+    {
+        "lessonId": "lesson-substitute-character-s",
+        "description": "Editing: Substitute a Character (s)",
+        "tags": [
+            "normal",
+            "editing"
+        ],
+        "solution": [
+            "s",
+            "/",
+            "/",
+            "Escape"
+        ],
+        "timeout": 5000,
+        "maxSteps": 10,
+        "finalBuffer": [
+            "API_URL=http://localhost:3000"
+        ],
+        "finalCursor": {
+            "row": 0,
+            "col": 14
+        },
+        "finalMode": "NORMAL",
+        "winCondition": "exactMatch"
+    },
+    {
+        "lessonId": "lesson-visual-delete-v",
+        "description": "Visual: Remove a config prefix with v5ld",
+        "solution": [
+            "v",
+            "5",
+            "l",
+            "d"
+        ],
+        "finalBuffer": [
+            "LOG_LEVEL=info"
+        ],
+        "finalCursor": {
+            "row": 0,
+            "col": 10
+        },
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-visual-change-c",
+        "description": "Visual: Replace the cache path segment",
+        "solution": ["v", "2", "l", "c", "v", "a", "r", "Escape"],
+        "finalBuffer": ["CACHE_DIR=/var/cache"],
+        "finalCursor": {"row": 0, "col": 13},
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-visual-line-delete",
+        "description": "Visual: Remove an obsolete config line",
+        "solution": ["V", "d"],
+        "finalBuffer": ["LOG_LEVEL=info", "API_PORT=3000"],
+        "finalCursor": {"row": 1, "col": 0},
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-visual-line-copy",
+        "description": "Visual: Copy a setting into the production section",
+        "solution": ["V", "y", "G", "p"],
+        "finalBuffer": ["[development]", "LOG_LEVEL=info", "", "[production]", "LOG_LEVEL=info"],
+        "finalCursor": {"row": 4, "col": 0},
+        "finalMode": "NORMAL"
+    },
+    {
+        "lessonId": "lesson-visual-text-copy",
+        "description": "Visual: Copy CSV values after a comma and a prefix before values",
+        "solution": ["v", "4", "l", "y", "k", "$", "p", "0", "v", "8", "l", "y", "G", "0", "P"],
+        "finalBuffer": ["name,price,stock", "keyboard,89,12", "mouse,89,12", "keyboard,89,12"],
+        "finalCursor": {"row": 3, "col": 8},
+        "finalMode": "NORMAL"
+    }
+]

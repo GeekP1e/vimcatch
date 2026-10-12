@@ -1,0 +1,44 @@
+{
+  "id": "lesson-delete-basics",
+  "version": 1,
+  "name": "Delete Basics",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 22
+  },
+  "instructions": "Clean up the services config. Press j and dd to remove the obsolete legacy-worker line. On the remaining worker line, use 10l to reach 'legacy', then remove it with dw.",
+  "initialContent": [
+    "services:",
+    "  legacy-worker: disabled",
+    "  worker: legacy enabled"
+  ],
+  "targetContent": [
+    "services:",
+    "  worker: enabled"
+  ],
+  "focusCommand": "j → dd → 10l → dw",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "j",
+    "d",
+    "d",
+    "1",
+    "0",
+    "l",
+    "d",
+    "w"
+  ]
+}

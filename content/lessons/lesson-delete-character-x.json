@@ -1,0 +1,39 @@
+{
+  "id": "lesson-delete-character-x",
+  "version": 1,
+  "name": "Delete a Character (x)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice x in a focused task."
+    ],
+    "order": 12
+  },
+  "instructions": "The cursor is on the extra 'X' in the port setting. Press x to remove it.",
+  "initialContent": [
+    "const poXrt = 8080;"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 8
+  },
+  "targetContent": [
+    "const port = 8080;"
+  ],
+  "solution": [
+    "x"
+  ],
+  "focusCommand": "x"
+}

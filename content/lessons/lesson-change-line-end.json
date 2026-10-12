@@ -1,0 +1,46 @@
+{
+  "id": "lesson-change-line-end",
+  "version": 1,
+  "name": "Change to Line End (c$)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice c$ as taught in Vim Tutor."
+    ],
+    "order": 16.2
+  },
+  "instructions": "Press c, then $. Type 'ready' and Esc to change the rest of the line.",
+  "initialContent": [
+    "status: broken now"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 8
+  },
+  "targetContent": [
+    "status: ready"
+  ],
+  "solution": [
+    "c",
+    "$",
+    "r",
+    "e",
+    "a",
+    "d",
+    "y",
+    "Escape"
+  ],
+  "focusCommand": "c$"
+}

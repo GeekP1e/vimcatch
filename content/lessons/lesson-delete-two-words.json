@@ -1,0 +1,41 @@
+{
+  "id": "lesson-delete-two-words",
+  "version": 1,
+  "name": "Delete Two Words (2dw)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice 2dw as taught in Vim Tutor."
+    ],
+    "order": 14.3
+  },
+  "instructions": "Remove the obsolete 'legacy build ' arguments with 2dw.",
+  "initialContent": [
+    "npm run legacy build production"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 8
+  },
+  "targetContent": [
+    "npm run production"
+  ],
+  "solution": [
+    "2",
+    "d",
+    "w"
+  ],
+  "focusCommand": "2dw"
+}

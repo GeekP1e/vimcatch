@@ -1,0 +1,54 @@
+{
+  "id": "lesson-change-inner-word-ciw",
+  "version": 1,
+  "name": "Change Inner Word (ciw)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-10",
+    "difficulty": "intermediate",
+    "tags": [
+      "normal",
+      "editing",
+      "text-object"
+    ],
+    "estimatedTime": 45,
+    "prerequisites": [
+      "lesson-delete-inner-word-diw"
+    ],
+    "learningObjectives": [
+      "Use 'ciw' to change a word completely without needing to be at its start",
+      "Understand how 'c' combines with 'iw'"
+    ],
+    "order": 32
+  },
+  "instructions": "Use ciw from inside 'staging' to change the deployment environment to 'production'.",
+  "initialContent": [
+    "deploy staging release"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 10
+  },
+  "targetContent": [
+    "deploy production release"
+  ],
+  "solution": [
+    "c",
+    "i",
+    "w",
+    "p",
+    "r",
+    "o",
+    "d",
+    "u",
+    "c",
+    "t",
+    "i",
+    "o",
+    "n",
+    "Escape"
+  ],
+  "focusCommand": "ciw"
+}

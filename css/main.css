@@ -1,0 +1,1613 @@
+/* VimCatch Game - Main Styles */
+
+body {
+    font-family: 'Fira Code', monospace;
+    overscroll-behavior: none; /* Prevents pull-to-refresh on mobile */
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.vim-editor {
+    white-space: pre;
+    line-height: 1.5;
+    caret-color: transparent;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.line-number {
+    color: #6b7280;
+    text-align: right;
+    padding-right: 1rem;
+    user-select: none;
+}
+
+.editor-line {
+    border-radius: 0.25rem;
+    padding: 0.08rem 0.2rem;
+}
+
+.editor-line.active {
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.cursor {
+    background-color: rgba(74, 222, 128, 0.96);
+    color: #031107;
+    animation: blink 0.5s step-end infinite;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.35);
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+        outline: 1px solid rgba(74, 222, 128, 0.85);
+        color: inherit;
+        box-shadow: 0 0 3px rgba(74, 222, 128, 0.2);
+    }
+}
+
+.cursor.cursor-insert {
+    background-color: transparent;
+    border-left: 2px solid #4ade80;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.16);
+    animation: insertCursorBlink 0.5s step-end infinite;
+}
+
+.visual-selection {
+    background: rgba(74, 222, 128, 0.32);
+    color: #dcfce7;
+}
+
+.editor-line.visual-line-selection {
+    background: rgba(74, 222, 128, 0.18);
+}
+
+.status-mode-visual {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.18);
+}
+
+@keyframes insertCursorBlink {
+    50% {
+        border-left-color: transparent;
+    }
+}
+
+.status-bar {
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.modal-bg {
+    background-color: rgba(0,0,0,0.7);
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+#modal-content {
+    backdrop-filter: blur(10px);
+}
+
+.level-complete-flash {
+    animation: flash 0.5s ease-out;
+}
+
+@keyframes flash {
+    0% { box-shadow: 0 0 0 0 rgba(242, 197, 92, 0.7); }
+    100% { box-shadow: 0 0 0 20px rgba(242, 197, 92, 0); }
+}
+
+.brand-logo {
+    color: #86efac;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: clamp(1.9rem, 5vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.09em;
+    line-height: 1;
+    text-shadow: 0 0 9px rgba(34, 197, 94, 0.55), 0 0 28px rgba(34, 197, 94, 0.2);
+}
+
+.brand-logo span {
+    color: #4ade80;
+    margin-right: 0.16em;
+}
+
+.brand-lockup {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 0.125rem;
+}
+
+.brand-mark {
+    justify-self: start;
+    width: clamp(2.4rem, 6vw, 3.8rem);
+    height: clamp(2.4rem, 6vw, 3.8rem);
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.38));
+}
+
+/* Celebration styles */
+.celebration-bg { 
+    padding: 1rem;
+    overflow-y: auto;
+    background: rgba(3, 10, 6, 0.8);
+}
+
+.celebration-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px); 
+}
+
+.celebration-text {
+    color: #4ade80;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 0 18px rgba(34, 197, 94, 0.25);
+}
+
+.celebration-card {
+    width: min(100%, 46rem);
+    max-height: 100%;
+    overflow-y: auto;
+    border: 1px solid rgba(34, 197, 94, 0.42);
+    border-radius: 0.55rem;
+    background: #070c08;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.08);
+}
+
+.celebration-body {
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+.celebration-message {
+    margin-top: 1rem;
+    color: #a7cdb3;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.celebration-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.celebration-actions .hud-action {
+    flex: 1 1 14rem;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    white-space: normal;
+}
+
+.celebration-actions .celebration-primary {
+    border-color: #4ade80;
+    background: rgba(20, 83, 45, 0.45);
+    color: #dcfce7;
+}
+
+.celebration-actions .hud-action:focus-visible {
+    outline: 2px solid #4ade80;
+    outline-offset: 3px;
+}
+
+@keyframes pop { 
+    0% { transform: scale(0.8); opacity: 0 } 
+    100% { transform: scale(1); opacity: 1 } 
+}
+
+@keyframes glow { 
+    0% { text-shadow: 0 0 10px rgba(250,204,21,.6) } 
+    100% { text-shadow: 0 0 30px rgba(250,204,21,1) } 
+}
+
+.confetti { 
+    position: fixed; 
+    top: -10px; 
+    font-size: 18px; 
+    animation: fall linear forwards; 
+    pointer-events: none; 
+}
+
+@keyframes fall { 
+    to { transform: translateY(110vh) rotate(360deg); opacity: .9 } 
+}
+
+/* Badges */
+.badge {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.badge:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Compact Badge Styling */
+#badge-section .badge {
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+#badge-section .badge:hover {
+    transform: scale(1.15);
+    filter: brightness(1.3);
+}
+
+/* Achievements Section Positioning */
+#badge-section {
+    transition: all 0.3s ease;
+}
+
+#badge-section:not(.hidden) {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Compact Challenge Styling */
+#challenge-container {
+    transition: all 0.3s ease;
+}
+
+#challenge-container.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* Responsive Design for Compact Layout */
+@media (max-width: 768px) {
+    #badge-section .badge {
+        font-size: 1rem;
+    }
+    
+    #challenge-container .text-2xl {
+        font-size: 1.25rem;
+    }
+    
+    #challenge-container .text-lg {
+        font-size: 1rem;
+    }
+}
+
+/* Button hover effects */
+button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Challenge mode improvements */
+#challenge-container {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cheat mode improvements */
+#cheat-panel {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#cheat-panel.translate-x-full {
+    display: none;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#cheat-panel:not(.translate-x-full) {
+    display: block;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Input focus effects */
+input:focus {
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.8);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 1);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .ascii-logo {
+        font-size: 0.5rem;
+    }
+    
+    #challenge-container {
+        margin: 1rem 0;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced cursor animations */
+.cursor.insert {
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.cursor.visual {
+    background-color: #8b5cf6;
+    box-shadow: 0 0 8px rgba(139, 92, 244, 0.6);
+}
+
+.cursor.search {
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
+.stat-pop {
+    animation: statPop 220ms ease-out;
+}
+
+@keyframes statPop {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.15); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* First Impression Refresh */
+.hud-shell {
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.96), rgba(24, 24, 24, 0.92));
+    backdrop-filter: blur(12px);
+}
+
+.hud-chip,
+.hud-pill,
+.hud-action,
+.hud-link,
+.hud-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+}
+
+.hud-chip,
+.hud-pill,
+.hud-hint {
+    border: 1px solid rgba(75, 85, 99, 0.85);
+    border-radius: 9999px;
+    background: rgba(31, 41, 55, 0.72);
+    padding: 0.45rem 0.8rem;
+    color: #d1d5db;
+}
+
+.hud-action,
+.hud-link {
+    border-radius: 9999px;
+    border: 1px solid rgba(75, 85, 99, 0.85);
+    background: rgba(31, 41, 55, 0.78);
+    color: #e5e7eb;
+    padding: 0.5rem 0.9rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.hud-action:hover,
+.hud-link:hover {
+    background: rgba(55, 65, 81, 0.92);
+    border-color: rgba(250, 204, 21, 0.45);
+}
+
+.hud-kbd {
+    background: #374151;
+    border-radius: 0.35rem;
+    border: 1px solid rgba(156, 163, 175, 0.35);
+    color: #f3f4f6;
+    font-size: 0.72rem;
+    padding: 0.18rem 0.45rem;
+}
+
+.goal-card {
+    padding: 0.9rem 1rem;
+    margin-top: 0.25rem;
+}
+
+.goal-card #instructions {
+    line-height: 1.15;
+}
+
+.goal-card #instructions > div {
+    gap: 0.35rem;
+}
+
+.goal-card #instructions .text-5xl,
+.goal-card #instructions .text-6xl {
+    font-size: clamp(1.9rem, 4vw, 2.7rem) !important;
+    line-height: 1;
+}
+
+.goal-card #instructions .text-lg {
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+}
+
+.goal-card #instructions .text-sm {
+    font-size: 0.85rem !important;
+}
+
+.goal-card #instructions .my-3,
+.goal-card #instructions .mt-2 {
+    margin-top: 0.35rem !important;
+}
+
+.goal-card #instructions .py-3 {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+}
+
+#editor-container {
+    margin-top: 0.25rem;
+}
+
+#editor-container > .flex:first-child {
+    margin-bottom: 0.75rem;
+}
+
+#vim-editor-display {
+    min-height: min(320px, 46vh);
+}
+
+.vim-screen {
+    overflow: hidden;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 0.5rem;
+    background: #050806;
+}
+
+.statusline {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 1.8rem;
+    padding: 0.25rem 0.75rem;
+    border-top: 1px solid rgba(34, 197, 94, 0.28);
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    background: #07110a;
+    color: #86a991;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+}
+
+.status-mode {
+    display: inline-flex;
+    align-items: center;
+    min-width: auto;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.status-mode-ex {
+    color: #1d4ed8;
+}
+
+.status-mode-normal {
+    color: #111827;
+}
+
+.status-mode-insert {
+    color: #065f46;
+}
+
+.status-mode-visual {
+    color: #6d28d9;
+}
+
+.status-sep {
+    opacity: 0.55;
+}
+
+.status-search {
+    color: #1f2937;
+}
+
+.vim-command-line {
+    min-height: 1.45rem;
+    padding: 0.15rem 0.75rem 0.25rem;
+    color: #4ade80;
+    background: #050806;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.72rem;
+}
+
+#command-log {
+    min-height: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+#level-selection {
+    min-height: 2.5rem;
+}
+
+#stats-bar {
+    box-shadow: inset 0 0 0 1px rgba(250, 204, 21, 0.08);
+}
+
+#retention-panel {
+    margin-top: 0.25rem;
+}
+
+.curriculum-shell {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.curriculum-section {
+    background: linear-gradient(180deg, rgba(24, 24, 24, 0.96), rgba(17, 17, 17, 0.96));
+    border: 1px solid rgba(75, 85, 99, 0.8);
+    border-radius: 1rem;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.curriculum-section-title {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    color: #fbbf24;
+}
+
+.curriculum-progress-meta,
+.curriculum-section-subtitle {
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+.curriculum-node {
+    border-radius: 0.85rem;
+    border: 1px solid rgba(75, 85, 99, 0.9);
+    background: rgba(31, 41, 55, 0.88);
+    color: #f9fafb;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, opacity 180ms ease;
+}
+
+.curriculum-node:hover {
+    transform: translateY(-1px);
+    border-color: rgba(34, 197, 94, 0.75);
+    background: rgba(55, 65, 81, 0.96);
+}
+
+.curriculum-progress {
+    height: 0.6rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: rgba(31, 41, 55, 0.9);
+    border: 1px solid rgba(75, 85, 99, 0.8);
+}
+
+.curriculum-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #ef4444);
+    transition: width 320ms ease;
+}
+
+.curriculum-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.curriculum-section {
+    padding: 0.9rem 0.95rem;
+}
+
+.curriculum-section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.curriculum-section-subtitle {
+    margin-top: 0.2rem;
+}
+
+.curriculum-section-badge {
+    flex: 0 0 auto;
+    border-radius: 9999px;
+    border: 1px solid rgba(75, 85, 99, 0.75);
+    background: rgba(31, 41, 55, 0.8);
+    color: #e5e7eb;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.curriculum-section--completed {
+    border-color: rgba(34, 197, 94, 0.45);
+}
+
+.curriculum-section--current {
+    border-color: rgba(250, 204, 21, 0.45);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.curriculum-section--available {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.curriculum-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.curriculum-node {
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.curriculum-node-state {
+    width: 1rem;
+    color: #4ade80;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.curriculum-node-command {
+    color: #f9fafb;
+    font-weight: 800;
+}
+
+.curriculum-node-name {
+    color: #9ca3af;
+    font-size: 0.72rem;
+}
+
+.curriculum-node--completed {
+    background: rgba(17, 24, 39, 0.9);
+    border-color: #22c55e;
+}
+
+.curriculum-node--current {
+    background: linear-gradient(180deg, rgba(187, 247, 208, 0.18), rgba(17, 24, 39, 0.95));
+    border-color: #22c55e;
+    box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.15);
+}
+
+.curriculum-node--completed .curriculum-node-state,
+.curriculum-node--current .curriculum-node-state {
+    color: #4ade80;
+}
+
+.curriculum-node--available {
+    border-color: rgba(59, 130, 246, 0.45);
+}
+
+@media (min-width: 1024px) {
+    .curriculum-summary {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        align-items: center;
+    }
+
+    .curriculum-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .retention-hub-row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .curriculum-node {
+        font-size: 0.75rem;
+    }
+
+    .curriculum-node-name {
+        display: none;
+    }
+
+    .curriculum-summary-title {
+        font-size: 1.03rem;
+    }
+
+    .retention-hub-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.retention-card {
+    background: linear-gradient(180deg, rgba(24, 24, 24, 0.94), rgba(17, 17, 17, 0.94));
+    border: 1px solid rgba(75, 85, 99, 0.85);
+    border-radius: 1rem;
+    padding: 1rem 1rem 0.95rem;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.retention-hub {
+    border-color: rgba(250, 204, 21, 0.35);
+    background: linear-gradient(180deg, rgba(33, 24, 13, 0.95), rgba(17, 17, 17, 0.95));
+}
+
+.retention-kicker {
+    color: #fbbf24;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.68rem;
+    margin-bottom: 0.55rem;
+}
+
+.retention-title {
+    color: #f9fafb;
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.retention-subtle {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-top: 0.35rem;
+}
+
+.retention-subtle.mono {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    color: #d1d5db;
+}
+
+.retention-hub-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.retention-hub-pill {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(75, 85, 99, 0.6);
+    background: rgba(31, 41, 55, 0.7);
+    font-size: 0.8rem;
+}
+
+.retention-hub-label {
+    color: #9ca3af;
+}
+
+.retention-hub-value {
+    color: #f9fafb;
+    font-weight: 800;
+}
+
+.retention-progress {
+    height: 0.65rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: rgba(31, 41, 55, 0.9);
+    border: 1px solid rgba(75, 85, 99, 0.8);
+    margin-top: 0.9rem;
+}
+
+.retention-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #ef4444);
+    transition: width 320ms ease;
+}
+
+.retention-meta {
+    font-size: 0.8rem;
+    color: #d1d5db;
+    margin-top: 0.5rem;
+}
+
+.retention-actions {
+    margin-top: 0.9rem;
+}
+
+.retention-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.95rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(75, 85, 99, 0.85);
+    background: rgba(31, 41, 55, 0.85);
+    color: #f9fafb;
+    font-weight: 700;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.retention-action:hover {
+    transform: translateY(-1px);
+    border-color: rgba(250, 204, 21, 0.55);
+    background: rgba(55, 65, 81, 0.95);
+}
+
+.retention-stat {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #f9fafb;
+}
+
+.streak-welcome {
+    border-color: rgba(34, 197, 94, 0.5) !important;
+    color: #bbf7d0 !important;
+}
+
+#session-progress {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+#session-progress-fill {
+    box-shadow: 0 0 10px rgba(242, 197, 92, 0.28);
+}
+
+#badge-toast {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.98);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+#badge-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+#badge-toast {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+.lesson-complete-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#editor-feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    width: 9rem;
+    height: 9rem;
+    min-width: 0;
+    border-radius: 50%;
+    padding: 1rem;
+    background: rgba(5, 28, 14, 0.96);
+    color: #86efac;
+    border: 1px solid rgba(75, 85, 99, 0.85);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    text-align: center;
+    white-space: pre-line;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    letter-spacing: 0.02em;
+}
+
+#editor-feedback.hidden { display: none; }
+.achievements-strip { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; color: #86efac; font-size: 0.72rem; padding: 0.35rem 0.1rem; }
+.achievements-strip.hidden { display: none; }
+.achievements-label { color: #4ade80; }
+#badge-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.achievement-chip { border: 1px solid #166534; border-radius: 0.3rem; padding: 0.25rem 0.5rem; background: #06140b; color: #86efac; }
+@keyframes completion-bounce {
+    0% { transform: translate(-50%, -50%) scale(0.65); }
+    45% { transform: translate(-50%, -62%) scale(1.08); }
+    75% { transform: translate(-50%, -46%) scale(0.96); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#editor-feedback.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: completion-bounce 450ms ease-out;
+}
+
+#editor-feedback.success {
+    border-color: rgba(34, 197, 94, 0.65);
+    box-shadow: 0 18px 36px rgba(16, 185, 129, 0.2);
+}
+
+#editor-feedback.error {
+    background: rgba(45, 7, 9, 0.97);
+    color: #fecaca;
+    border-color: rgba(239, 68, 68, 0.75);
+    box-shadow: 0 0 28px rgba(239, 68, 68, 0.22), 0 18px 36px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hud-shell {
+        padding: 0.85rem;
+    }
+
+    .goal-card {
+        padding: 0.8rem 0.9rem;
+    }
+
+    #vim-editor-display {
+        min-height: 280px;
+    }
+
+    #editor-feedback {
+        top: 50%;
+        min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .cursor,
+    .cursor.cursor-insert,
+    .stat-pop {
+        animation: none !important;
+    }
+
+    #session-progress-fill,
+    #badge-toast,
+    #editor-feedback {
+        transition: none !important;
+    }
+}
+
+/* Terminal HUD */
+.hud-shell {
+    overflow: hidden;
+    border: 1px solid rgba(34, 197, 94, 0.42);
+    border-radius: 0.7rem;
+    background:
+        linear-gradient(rgba(34, 197, 94, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, 0.025) 1px, transparent 1px),
+        #090d0a;
+    background-size: 24px 24px;
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.72), 0 0 24px rgba(34, 197, 94, 0.07);
+    color: #a7f3d0;
+}
+
+.hud-terminal-bar,
+.hud-command-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.72rem 0.9rem;
+}
+
+.hud-terminal-bar {
+    border-bottom: 1px solid rgba(34, 197, 94, 0.18);
+    background: rgba(3, 8, 5, 0.72);
+}
+
+.hud-terminal-dots {
+    display: inline-flex;
+    gap: 0.3rem;
+}
+
+.hud-terminal-dots i {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    background: #14532d;
+    box-shadow: 0 0 7px rgba(34, 197, 94, 0.4);
+}
+
+.hud-terminal-dots i:nth-child(2) { background: #16a34a; }
+.hud-terminal-dots i:nth-child(3) { background: #4ade80; }
+
+.hud-prompt {
+    min-width: 0;
+    overflow: hidden;
+    color: #86efac;
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hud-prompt b { color: #22c55e; }
+
+.hud-level {
+    margin-left: auto;
+    color: #d1fae5;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hud-progress {
+    height: 2px;
+    background: rgba(20, 83, 45, 0.48);
+}
+
+.hud-progress-fill {
+    height: 100%;
+    width: 0;
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+    transition: width 300ms ease;
+}
+
+.hud-command-row { justify-content: space-between; }
+.hud-metrics, .hud-nav { display: flex; align-items: center; flex-wrap: wrap; gap: 0.45rem; }
+
+#language-select {
+    color-scheme: dark;
+    background-color: #06140b;
+    cursor: pointer;
+}
+
+#language-select option {
+    background-color: #06140b;
+    color: #86efac;
+}
+
+#language-select:focus-visible {
+    outline: 1px solid #4ade80;
+    outline-offset: 2px;
+}
+
+.hud-stat,
+.hud-action,
+.hud-link,
+.hud-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 1.85rem;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(34, 197, 94, 0.24);
+    border-radius: 0.3rem;
+    background: rgba(6, 20, 11, 0.72);
+    color: #86efac;
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.hud-stat.hidden,
+.hud-action.hidden,
+.hud-link.hidden,
+.hud-hint.hidden { display: none; }
+
+.hud-stat b { color: #f0fdf4; margin-left: 0.25rem; }
+.hud-action, .hud-link { font-weight: 700; }
+.hud-action:hover, .hud-link:hover { transform: none; border-color: #22c55e; background: rgba(20, 83, 45, 0.45); color: #dcfce7; }
+.hud-kbd { border-color: rgba(34, 197, 94, 0.3); background: #052e16; color: #bbf7d0; }
+
+/* Compact lesson console */
+.curriculum-shell { gap: 0.7rem; }
+
+.curriculum-console {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgba(34, 197, 94, 0.32);
+    border-radius: 0.55rem;
+    background: #090d0a;
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.55);
+}
+
+.curriculum-console-prompt {
+    margin-right: auto;
+    color: #22c55e;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.curriculum-console-actions { display: flex; gap: 0.35rem; }
+.custom-lesson-node { display: flex; align-items: center; gap: 0.5rem; }
+.custom-lesson-node .curriculum-node { flex: 1; min-width: 0; }
+.curriculum-lesson-progress { white-space: nowrap; }
+
+.curriculum-icon,
+.curriculum-map-toggle {
+    min-height: 2rem;
+    padding: 0.3rem 0.62rem;
+    border: 1px solid rgba(34, 197, 94, 0.28);
+    border-radius: 0.3rem;
+    background: rgba(6, 20, 11, 0.78);
+    color: #86efac;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.curriculum-icon:hover,
+.curriculum-map-toggle:hover { transform: none; border-color: #22c55e; color: #dcfce7; }
+.curriculum-icon:disabled { cursor: not-allowed; opacity: 0.28; }
+.curriculum-console-progress { color: #4ade80; font-size: 0.72rem; white-space: nowrap; }
+
+.curriculum-section {
+    border-radius: 0.55rem;
+    border-color: rgba(34, 197, 94, 0.22);
+    background: linear-gradient(180deg, rgba(6, 20, 11, 0.92), rgba(5, 12, 8, 0.96));
+    box-shadow: none;
+}
+
+.curriculum-section-title { color: #4ade80; }
+.curriculum-progress-fill { background: #22c55e; box-shadow: 0 0 9px rgba(34, 197, 94, 0.55); }
+
+#reset-btn,
+#clear-progress-btn {
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 0.35rem;
+    background: rgba(6, 20, 11, 0.82);
+    box-shadow: none;
+    color: #86efac;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+}
+
+#reset-btn:hover,
+#clear-progress-btn:hover {
+    transform: none;
+    border-color: #22c55e;
+    background: rgba(20, 83, 45, 0.45);
+    color: #dcfce7;
+}
+
+@media (max-width: 768px) {
+    .hud-command-row { align-items: flex-start; flex-direction: column; }
+    .hud-level { font-size: 0.68rem; }
+    .curriculum-console { align-items: stretch; flex-wrap: wrap; }
+    .curriculum-console-prompt { width: 100%; }
+    .curriculum-console-progress { width: 100%; }
+}
+
+/* Unified hacker palette */
+body {
+    background:
+        radial-gradient(circle at 50% -10%, rgba(20, 83, 45, 0.2), transparent 34rem),
+        linear-gradient(135deg, #0a0f0c 0%, #071009 48%, #030605 100%) !important;
+}
+
+.goal-card {
+    border: 1px solid rgba(34, 197, 94, 0.34) !important;
+    border-radius: 0.65rem;
+    background:
+        linear-gradient(rgba(34, 197, 94, 0.022) 1px, transparent 1px),
+        #080d09 !important;
+    background-size: 100% 2rem !important;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(34, 197, 94, 0.06);
+}
+
+.goal-card #instructions,
+.goal-card #instructions .text-blue-100,
+.goal-card #instructions .text-blue-200,
+.goal-card #instructions .text-blue-400,
+.goal-card #instructions .text-gray-300 { color: #bbf7d0 !important; }
+.goal-card #instructions .text-yellow-400 { color: #4ade80 !important; }
+.goal-card #instructions .text-green-400 { color: #86efac !important; text-shadow: 0 0 12px rgba(34, 197, 94, 0.5); }
+#lesson-author { color: #4b7d5d !important; }
+
+#editor-container {
+    border-color: rgba(34, 197, 94, 0.28) !important;
+    border-radius: 0.65rem;
+    background: linear-gradient(180deg, rgba(10, 16, 12, 0.98), rgba(5, 9, 6, 0.98)) !important;
+    box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.48), 0 16px 35px rgba(0, 0, 0, 0.28);
+}
+
+#vim-editor-display {
+    border-color: rgba(34, 197, 94, 0.2) !important;
+    background: #050806 !important;
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.55);
+}
+
+.editor-line.active { background: rgba(34, 197, 94, 0.07); }
+.line-number { color: #3f6b4d; }
+
+.statusline {
+    border-top-color: rgba(74, 222, 128, 0.36);
+    background: #07110a !important;
+    box-shadow: inset 0 1px 0 rgba(34, 197, 94, 0.04);
+    color: #86a991 !important;
+}
+
+.status-mode,
+.status-mode-ex,
+.status-mode-normal,
+.status-mode-insert,
+.status-mode-visual,
+.status-search { color: #86efac; }
+
+.status-mode { color: #4ade80 !important; }
+
+#command-log { border-color: rgba(34, 197, 94, 0.22); background: #050806; color: #86efac; }
+
+#modal-content,
+#cheat-panel {
+    border-color: rgba(34, 197, 94, 0.35) !important;
+    background: linear-gradient(145deg, #0a130d, #050806) !important;
+}
+
+footer {
+    border-color: rgba(34, 197, 94, 0.13) !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    font-size: 0.78rem;
+}
+
+footer a { color: #4ade80 !important; }
+
+.app-footer p {
+    color: #4ade80;
+    text-shadow: 0 0 9px rgba(34, 197, 94, 0.3);
+}
+
+/* Practice Arena */
+.vim-hint {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.65rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 0.3rem;
+    background: #06140b;
+    color: #a7cdb3;
+    font-size: 0.8rem;
+}
+
+.vim-hint-label, .hint-category, .hint-command-key, .hint-panel-title {
+    color: #4ade80;
+    font-weight: 700;
+}
+
+.vim-hint-label::before { content: "$ "; }
+.hint-category { margin-bottom: 0.5rem; font-size: 0.8rem; }
+.hint-panel-title { font-size: 1.1rem; }
+.hint-command-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #164829;
+    border-radius: 0.35rem;
+    background: #050c08;
+    text-align: left;
+}
+.hint-command-card:hover, .hint-command-card:focus-visible {
+    border-color: #4ade80;
+    background: #0a1b10;
+    outline: none;
+}
+.hint-command-card--complete { border-color: #22c55e; }
+.hint-command-description { margin-top: 0.25rem; color: #a7cdb3; font-size: 0.8rem; }
+.hint-command-action { color: #4ade80; font-size: 0.7rem; }
+#cheat-panel > .sticky { background: #07110a !important; border-color: #164829; flex-wrap: wrap; }
+#cheat-search { background: #050c08; border-color: #164829; color: #bbf7d0; }
+#cheat-search:focus { border-color: #4ade80; box-shadow: none; }
+#cheat-close { background: #06140b; border: 1px solid #164829; color: #86efac; }
+
+#challenge-container {
+    margin: 0.65rem 0;
+    animation: none;
+}
+
+.challenge-terminal {
+    position: relative;
+    overflow: hidden;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(34, 197, 94, 0.42);
+    border-radius: 0.55rem;
+    background:
+        linear-gradient(rgba(34, 197, 94, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, 0.025) 1px, transparent 1px),
+        #070c08;
+    background-size: 22px 22px;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.68), 0 0 18px rgba(34, 197, 94, 0.07);
+}
+
+.challenge-terminal::before {
+    content: "RUNNING";
+    position: absolute;
+    top: 0.6rem;
+    left: 50%;
+    color: #3f6b4d;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    transform: translateX(-50%);
+}
+
+.challenge-kicker {
+    color: #3f6b4d;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.challenge-title {
+    margin-top: 0.15rem;
+    color: #d1fae5;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.challenge-terminal #challenge-instructions,
+.challenge-terminal .text-blue-200,
+.challenge-terminal .text-blue-300 { color: #86a991 !important; }
+
+.challenge-terminal #timer,
+.challenge-terminal #challenge-progress,
+.challenge-terminal #challenge-score { color: #4ade80 !important; }
+
+.challenge-terminal #timer {
+    font-size: 1.45rem;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.35);
+}
+
+.terminal-select {
+    position: relative;
+    display: block;
+    color: #4ade80;
+    letter-spacing: 0.04em;
+}
+
+.terminal-select.hidden {
+    display: none;
+}
+
+.terminal-select::after {
+    content: "⌄";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.55rem;
+    color: #4ade80;
+    font-size: 1rem;
+    line-height: 1;
+    pointer-events: none;
+    transition: transform 160ms ease, color 160ms ease;
+}
+
+.terminal-select:focus-within::after {
+    color: #dcfce7;
+    transform: translateY(2px);
+}
+
+.terminal-select-control {
+    appearance: none;
+    min-height: 2.15rem;
+    padding: 0.4rem 2.1rem 0.4rem 0.75rem;
+    border: 1px solid #166534;
+    border-radius: 0.25rem;
+    background: linear-gradient(180deg, rgba(6, 24, 12, 0.98), rgba(3, 13, 7, 0.98));
+    color: #bbf7d0;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.03);
+    transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.terminal-select-control:hover {
+    border-color: #22c55e;
+    background: #071b0d;
+}
+
+.terminal-select-control:focus-visible {
+    border-color: #4ade80;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.16), inset 0 0 12px rgba(34, 197, 94, 0.05);
+}
+
+.terminal-select-control option {
+    background: #050c08;
+    color: #bbf7d0;
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.practice-mode-selector {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.practice-mode-option {
+    min-height: 2.2rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #166534;
+    border-radius: 0.3rem;
+    background: rgba(3, 13, 7, 0.92);
+    color: #86a991;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.practice-mode-option:hover {
+    color: #dcfce7;
+    border-color: #22c55e;
+    background: rgba(20, 83, 45, 0.28);
+}
+
+.practice-mode-option.active {
+    color: #dcfce7;
+    border-color: #4ade80;
+    background: rgba(20, 83, 45, 0.58);
+    box-shadow: inset 0 -2px 0 #4ade80, 0 0 14px rgba(34, 197, 94, 0.12);
+}
+
+.practice-mode-option:focus-visible {
+    outline: 2px solid rgba(74, 222, 128, 0.75);
+    outline-offset: 2px;
+}
+
+.practice-command-selector {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+.practice-command-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.practice-command-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.practice-command-option span {
+    display: grid;
+    place-items: center;
+    min-height: 2.15rem;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid #166534;
+    border-radius: 0.3rem;
+    background: rgba(3, 13, 7, 0.92);
+    color: #86a991;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-weight: 700;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.practice-command-option:hover span {
+    color: #dcfce7;
+    border-color: #22c55e;
+}
+
+.practice-command-option input:checked + span {
+    color: #dcfce7;
+    border-color: #4ade80;
+    background: rgba(20, 83, 45, 0.58);
+    box-shadow: inset 0 -2px 0 #4ade80;
+}
+
+.practice-command-option input:focus-visible + span {
+    outline: 2px solid rgba(74, 222, 128, 0.75);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .practice-mode-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .practice-command-selector { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .challenge-terminal::before { display: none; }
+    .challenge-terminal { padding: 0.8rem; }
+}
+
+/* Editor feedback animations */
+@keyframes success-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    100% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+}
+
+.success-pulse {
+    animation: success-pulse 0.8s ease-out;
+}
+
+@keyframes error-flash {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.9); }
+    100% { box-shadow: 0 0 0 25px rgba(239, 68, 68, 0); }
+}
+
+.error-flash {
+    animation: error-flash 0.5s ease-out;
+}

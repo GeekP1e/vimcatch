@@ -1,0 +1,56 @@
+{
+  "id": "lesson-insert-append-mix",
+  "version": 1,
+  "name": "Insert and Append",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "basics"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-insert-before-i",
+      "lesson-append-line-end"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 20
+  },
+  "instructions": "Press j to move to the line below. Use i to insert 'run ' before 'server', then Esc. Use A to append ' ready', then Esc. The result should be 'run server ready'.",
+  "initialContent": [
+    "# Start the local service",
+    "server"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "# Start the local service",
+    "run server ready"
+  ],
+  "solution": [
+    "j",
+    "i",
+    "r",
+    "u",
+    "n",
+    " ",
+    "Escape",
+    "A",
+    " ",
+    "r",
+    "e",
+    "a",
+    "d",
+    "y",
+    "Escape"
+  ],
+  "focusCommand": "j → i → Esc → A"
+}

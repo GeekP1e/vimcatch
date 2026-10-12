@@ -1,0 +1,52 @@
+{
+  "id": "lesson-search-backward",
+  "version": 1,
+  "name": "Search Backward (?)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 26
+  },
+  "instructions": "Search backward for the previous 'alpha' release: press ?, type 'alpha', then press Enter.",
+  "initialContent": [
+    "The alpha release completed internal testing.",
+    "The beta release includes the latest fixes.",
+    "The alpha release is approved for production.",
+    "Deployment starts after final approval."
+  ],
+  "target": {
+    "row": 2,
+    "col": 4
+  },
+  "requires": [
+    {
+      "type": "search",
+      "direction": "backward",
+      "query": "alpha",
+      "minNavigations": 0
+    }
+  ],
+  "focusCommand": "?",
+  "initialCursor": {
+    "row": 3,
+    "col": 0
+  },
+  "solution": [
+    "?",
+    "a",
+    "l",
+    "p",
+    "h",
+    "a",
+    "Enter"
+  ]
+}

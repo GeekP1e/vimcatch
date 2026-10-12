@@ -1,0 +1,23 @@
+{
+  "id": "lesson-visual-text-copy",
+  "version": 1,
+  "name": "Copy Visual Text (y, p, P)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-12",
+    "difficulty": "beginner",
+    "tags": ["visual", "editing"],
+    "estimatedTime": 60,
+    "prerequisites": ["lesson-visual-line-copy", "lesson-line-bounds-0-and"],
+    "learningObjectives": ["Copy selected characters with y, then use p after the cursor and P before it without inserting whole lines."],
+    "order": 15.6
+  },
+  "instructions": "Fill both keyboard rows. The cursor is on 8 in mouse,89,12. Press v4ly to select and copy the five characters 89,12, then k$p to paste after the comma in keyboard,. Next press 0v8ly to copy keyboard, and G0P to insert that prefix before the final row's values. P is uppercase (Shift+p).",
+  "initialContent": ["name,price,stock", "keyboard,", "mouse,89,12", "89,12"],
+  "initialCursor": {"row": 2, "col": 6},
+  "targetContent": ["name,price,stock", "keyboard,89,12", "mouse,89,12", "keyboard,89,12"],
+  "solution": ["v", "4", "l", "y", "k", "$", "p", "0", "v", "8", "l", "y", "G", "0", "P"],
+  "focusCommand": "v4ly → k$p → 0v8ly → G0P"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "lesson-delete-word-end-de",
+  "version": 1,
+  "name": "Delete to Word End (de)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice de as taught in Vim Tutor."
+    ],
+    "order": 14.1
+  },
+  "instructions": "Use de to remove 'legacy' while keeping the following space.",
+  "initialContent": [
+    "npm run legacy build"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 8
+  },
+  "targetContent": [
+    "npm run  build"
+  ],
+  "solution": [
+    "d",
+    "e"
+  ],
+  "focusCommand": "de"
+}

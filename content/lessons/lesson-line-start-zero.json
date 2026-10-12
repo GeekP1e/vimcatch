@@ -1,0 +1,42 @@
+{
+  "id": "lesson-line-start-zero",
+  "version": 1,
+  "name": "Line Start (0)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Return to column one with 0."
+    ],
+    "order": 3.9
+  },
+  "instructions": "The cursor is in the middle of the line. Press 0 to return to its first character.",
+  "initialContent": [
+    "The team checks the build and reviews the test results.",
+    "Clear notes make the next editing session easier.",
+    "Review the deployment notes before publishing a release.",
+    "Every change should be small and easy to understand."
+  ],
+  "initialCursor": {
+    "row": 2,
+    "col": 22
+  },
+  "target": {
+    "row": 2,
+    "col": 0
+  },
+  "focusCommand": "0",
+  "solution": [
+    "0"
+  ]
+}

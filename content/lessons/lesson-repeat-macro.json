@@ -1,0 +1,53 @@
+{
+  "id": "lesson-repeat-macro",
+  "version": 1,
+  "name": "Repeat the Last Macro (@@)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-06",
+    "difficulty": "intermediate",
+    "tags": [
+      "macros",
+      "registers"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-record-macro"
+    ],
+    "learningObjectives": [
+      "Repeat the last executed macro with @@"
+    ],
+    "order": 36
+  },
+  "instructions": "Uncomment the three server settings. Record `xj` into register a with qaxjq, run it once with @a, then repeat it with @@.",
+  "initialContent": [
+    "#host: localhost",
+    "#port: 8080",
+    "#debug: false",
+    "database:"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "host: localhost",
+    "port: 8080",
+    "debug: false",
+    "database:"
+  ],
+  "solution": [
+    "q",
+    "a",
+    "x",
+    "j",
+    "q",
+    "@",
+    "a",
+    "@",
+    "@"
+  ],
+  "focusCommand": "@@"
+}

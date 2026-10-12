@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VimCatch — Interactive Vim Training</title>
+    <meta name="description" content="VimCatch is an interactive terminal-style Vim training game with lessons, drills and timed practice.">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-gray-200 min-h-screen p-3 md:p-4 relative">
+    
+    <div class="w-full max-w-6xl mx-auto space-y-2 md:space-y-3">
+        <div class="brand-lockup">
+            <img class="brand-mark" src="images/favicon.svg" alt="" aria-hidden="true">
+            <div class="brand-logo" aria-label="VimCatch"><span>VIM</span>CATCH</div>
+        </div>
+        <div class="mt-1 mb-3">
+            <div class="hud-shell">
+                <div class="hud-terminal-bar">
+                    <span class="hud-terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="hud-prompt"><b>geek@vimcatch</b>:~$ <span id="session-command">./train</span></span>
+                </div>
+                <div id="session-progress" class="hud-progress">
+                    <div id="session-progress-fill" class="hud-progress-fill"></div>
+                </div>
+                <div class="hud-command-row">
+                    <div class="hud-metrics">
+                        <div id="badge-section" class="achievements-strip hidden">
+                            <span class="achievements-label" data-i18n="achievements">$ achievements</span>
+                            <span id="badge-count"></span>
+                            <div id="badge-bar"></div>
+                        </div>
+                        <div id="streak-pill" class="hud-stat hidden"></div>
+                    </div>
+                    <nav class="hud-nav" data-i18n-aria-label="utilities" aria-label="Utilities">
+                        <button id="lesson-template-open" type="button" class="hud-action" data-i18n="downloadExample">Lesson source</button>
+                        <button id="challenge-toggle" class="hud-action">./practice</button>
+                        <button id="cheat-toggle" type="button" class="hud-action" data-i18n="cheatsCommand">./cheats</button>
+                        <select id="language-select" class="hud-action" aria-label="Language / Язык">
+                            <option value="en">EN</option>
+                            <option value="ru">RU</option>
+                            <option value="zh-CN">中文</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current lesson goal and progress notices -->
+        <div class="goal-card bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-3 md:p-4 mb-3 md:mb-4 border border-blue-700/50 backdrop-blur-xs relative">
+            <p id="instructions" class="text-lg text-center text-blue-100 font-medium">Start a VimCatch training session.</p>
+        </div>
+        <div id="progress-message" class="mt-3 text-center text-sm hidden" role="status" aria-live="polite"></div>
+
+
+        <!-- Practice Arena Container -->
+        <div id="challenge-container" class="hidden mb-4">
+            <div class="challenge-terminal">
+                <div class="mb-4">
+                    <div class="text-xs text-green-300 mb-1" data-i18n="mode">Mode</div>
+                    <div id="practice-mode" class="practice-mode-selector" role="group" data-i18n-aria-label="practiceMode" aria-label="Practice mode">
+                        <button type="button" class="practice-mode-option active" data-practice-mode="time" data-i18n="time" aria-pressed="true">Time Attack</button>
+                        <button type="button" class="practice-mode-option" data-practice-mode="golf" data-i18n="golf" aria-pressed="false">Vim Golf</button>
+                    </div>
+                </div>
+                <div id="practice-duration-wrap" class="mb-4">
+                    <label class="terminal-select text-xs text-green-300"><span data-i18n="duration">Duration</span>
+                        <select id="practice-duration" class="terminal-select-control w-full mt-1">
+                            <option value="30">0:30</option>
+                            <option value="60" selected>1:00</option>
+                            <option value="120">2:00</option>
+                            <option value="300">5:00</option>
+                            <option value="600">10:00</option>
+                            <option value="900">15:00</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+                    <div class="text-center md:text-left mb-2 md:mb-0">
+                        <div class="challenge-kicker" data-i18n="trainingSession">Training session</div>
+                        <h3 class="challenge-title" data-i18n="arena">Practice Arena</h3>
+                        <div id="challenge-instructions" class="text-blue-200 text-sm">
+                            Practice editing at your own pace.
+                        </div>
+                    </div>
+                </div>
+                <div id="practice-timer-wrap" class="mb-3">
+                    <span data-i18n="remaining">Time Remaining</span>: <strong id="timer">1:00</strong>
+                </div>
+                <div id="practice-results" class="flex flex-col md:flex-row justify-between items-center text-sm">
+                    <div id="practice-completed-count" class="text-blue-200 mb-1 md:mb-0">
+                        <span id="time-completed-label" class="hidden"><span data-i18n="completedTasks">Tasks completed</span>: </span>
+                        <span class="font-semibold">
+                            <span id="challenge-progress" class="text-yellow-400">0</span><span id="challenge-total-wrap">/<span id="challenge-total">3</span></span>
+                        </span> <span id="golf-completed-label" data-i18n="tasksCompleted">tasks completed</span>
+                    </div>
+                </div>
+                <div id="golf-results" class="hidden mt-3">
+                    <div class="flex flex-wrap gap-4 text-sm">
+                        <span><span data-i18n="golfCurrent">Current attempt</span>: <strong id="golf-current">0</strong> <span data-i18n="golfKeys">keystrokes</span></span>
+                        <span><span data-i18n="golfLast">Last result</span>: <strong id="golf-last">—</strong></span>
+                        <span><span data-i18n="golfBest">Personal best</span>: <strong id="golf-best">—</strong></span>
+                    </div>
+                    <div id="golf-task-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-3"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Main Editor Container -->
+        <div id="editor-container" class="bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-xl shadow-2xl p-4 md:p-5 border border-gray-600/50 relative backdrop-blur-xs transition-all duration-300">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex flex-col">
+                    <div class="text-gray-400 text-sm font-medium" data-i18n="editor">VIM Editor</div>
+                </div>
+                <div class="text-gray-500 text-xs hidden md:block" data-i18n="normalHelp">Press Esc for Normal mode</div>
+            </div>
+            <div id="editor-workspace">
+                <div id="editable-pane" class="relative">
+                    <div id="editable-pane-label" class="editor-pane-label hidden" data-i18n="yourText">Your text — editable</div>
+                    <div class="vim-screen">
+                        <div id="vim-editor-display" class="vim-editor text-lg min-h-[320px] p-4"></div>
+                        <!-- Vim-style status line and command line -->
+                        <div id="command-log" class="vim-command-line"></div>
+                        <div id="status-bar" class="status-bar statusline">NORMAL</div>
+                    </div>
+                    <textarea id="vim-editor-input" aria-label="Vim editor" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-default" spellcheck="false"></textarea>
+                </div>
+                <div id="target-pane" class="hidden">
+                    <div class="editor-pane-label" data-i18n="targetText">Target — read only</div>
+                    <div class="vim-screen">
+                        <div id="vim-target-display" class="vim-editor text-lg min-h-[320px] p-4" aria-readonly="true" role="textbox" aria-multiline="true"></div>
+                        <div class="status-bar statusline" data-i18n="readOnly">READ ONLY</div>
+                    </div>
+                </div>
+            </div>
+            <div id="editor-feedback" class="pointer-events-none hidden" aria-live="polite" role="status"></div>
+        </div>
+
+        <!-- Level Controls -->
+        <div class="mt-3 mb-3">
+            <div id="level-selection" class="flex justify-center flex-wrap gap-3">
+                <!-- Lesson explorer will be injected here -->
+            </div>
+        </div>
+
+        <div id="session-actions" class="flex flex-col md:flex-row justify-end items-center mt-3 gap-3">
+            <button id="practice-start" type="button" data-i18n="reset" class="hud-action hidden">Start over</button>
+            <button id="reset-btn" data-i18n="reset" class="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-gray-200 hover:text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Start over
+            </button>
+            <button id="clear-progress-btn" type="button" data-i18n="resetProgress">Reset progress</button>
+        </div>
+    </div>
+
+    <!-- Modal for level completion -->
+    <div id="modal" class="fixed inset-0 flex items-center justify-center modal-bg opacity-0 pointer-events-none z-50">
+        <div id="modal-content" class="bg-gradient-to-br from-gray-800 to-gray-900 text-white p-8 rounded-2xl shadow-2xl max-w-md text-center transform scale-95 border border-gray-600/50 backdrop-blur-xs">
+            <h2 id="modal-title" data-i18n="levelComplete" class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Level Complete!</h2>
+            <div id="modal-message" data-i18n="levelCompleteMessage" class="mb-6 text-gray-300">Great job! You've mastered the basics of movement.</div>
+            <button id="next-level-btn" class="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <span data-i18n="nextLevel">Next Level</span> →
+            </button>
+        </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebration" class="fixed inset-0 hidden celebration-bg z-50 flex items-center justify-center w-screen h-screen" role="dialog" aria-modal="true" aria-labelledby="celebration-title" aria-describedby="celebration-message">
+        <div class="celebration-overlay"></div>
+        <div class="celebration-card relative z-10">
+            <div class="hud-terminal-bar">
+                <span class="hud-terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="hud-prompt"><b>geek@vimcatch</b>:~$ ./train</span>
+            </div>
+            <div class="celebration-body">
+                <h2 id="celebration-title" class="celebration-text">
+                    <span data-i18n="mastered">MASTERED</span>
+                </h2>
+                <p id="celebration-message" class="celebration-message" data-i18n="courseMastered">You've conquered all Vim basics — you're unstoppable now!</p>
+                <div class="celebration-actions">
+                    <button id="celebration-practice" type="button" class="hud-action celebration-primary" data-i18n="startPractice">Start practice</button>
+                    <button id="celebration-restart" type="button" class="hud-action" data-i18n="repeatTraining">Repeat training</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Badge Toast -->
+    <div id="badge-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 font-bold py-3 px-6 rounded-xl shadow-2xl hidden z-50 transform hover:scale-105 transition-all duration-300"></div>
+
+    <!-- Command Reference Panel -->
+    <div id="cheat-overlay" class="fixed inset-0 hidden z-40 bg-black/60 backdrop-blur-xs"></div>
+    <div id="cheat-panel" class="fixed right-0 top-0 h-full w-full max-w-2xl bg-gradient-to-br from-gray-800 to-gray-900 border-l border-gray-600/50 shadow-2xl transform translate-x-full transition-all duration-300 z-50 overflow-y-auto backdrop-blur-xs">
+        <div class="sticky top-0 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-600/50 p-6 flex items-center gap-4">
+            <h3 class="hint-panel-title" data-hint="Command Reference">Command Reference</h3>
+            <input id="cheat-search" type="text" placeholder="Search Vim commands... (Ctrl+/)" class="flex-1 bg-gray-700/50 text-gray-100 rounded-lg px-4 py-3 border border-gray-600/50 focus:outline-hidden focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300" />
+            <button id="cheat-close" class="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-gray-200 hover:text-white font-bold px-4 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                <span data-hint="Close">Close</span>
+            </button>
+        </div>
+        <div id="cheat-content" class="p-6 space-y-6"></div>
+    </div>
+
+    <div id="lesson-template-modal" class="fixed inset-0 hidden z-50 bg-black/75 backdrop-blur-xs p-4" role="dialog" aria-modal="true" data-i18n-aria-label="templateTitle" aria-label="Lesson file example">
+        <div class="mx-auto mt-8 max-w-xl max-h-[calc(100vh-4rem)] overflow-y-auto rounded-xl border border-green-700/60 bg-gray-950 p-6 shadow-2xl">
+            <div class="flex items-start justify-between gap-4 mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-300" data-i18n="templateTitle">Lesson file example</h2>
+                    <p class="mt-2 whitespace-pre-line text-sm text-green-300" data-i18n="templateIntro">$ Import lesson → load your lesson.json
+$ Download JSON example → get a starter</p>
+                    <p class="mt-3 whitespace-pre-line text-sm text-gray-400" data-i18n="templateSteps">&gt; Download JSON example → edit JSON → Import lesson
+# Set the task, target and solution.
+# Saved here. Reload-safe.
+# Bad lesson? Delete it in My lessons.</p>
+                </div>
+                <button id="lesson-template-close" type="button" class="hud-action" data-hint="Close">Close</button>
+            </div>
+            <div id="lesson-import-status" class="mt-4 hidden text-sm" role="status" aria-live="polite"></div>
+            <div class="mt-5 flex flex-wrap justify-end gap-3">
+                <input id="upload-lesson-file" type="file" accept=".json,application/json" class="hidden">
+                <button id="upload-lesson-template" type="button" class="hud-action" data-i18n="uploadLesson">Import lesson</button>
+                <button id="download-lesson-template" type="button" class="hud-action" data-i18n="downloadSource">Download JSON example</button>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="app-footer text-center py-8 border-t border-gray-600/30">
+        <p>VimCatch · MIT License · GeekP1e</p>
+    </footer>
+
+    <!-- Load all JavaScript modules -->
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

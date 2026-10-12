@@ -1,0 +1,38 @@
+{
+  "id": "lesson-counts-move-faster",
+  "version": 1,
+  "name": "Counts: Move Faster",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-word-movement"
+    ],
+    "learningObjectives": [],
+    "order": 3.05
+  },
+  "instructions": "Use a count with motions. Press 3 then w to jump directly to 'production'.",
+  "initialContent": [
+    "git push origin production"
+  ],
+  "target": {
+    "row": 0,
+    "col": 16
+  },
+  "focusCommand": "3w",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "3",
+    "w"
+  ]
+}

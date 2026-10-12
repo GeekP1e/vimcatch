@@ -1,0 +1,59 @@
+{
+  "id": "lesson-search-change-mix",
+  "version": 1,
+  "name": "Find and Fix",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "search"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-search-forward",
+      "lesson-change-word-cw"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 28
+  },
+  "instructions": "Find 'broken' with /broken and Enter. Use cw to replace it with 'fixed', then Esc.",
+  "initialContent": [
+    "service healthy",
+    "service broken",
+    "service waiting"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "service healthy",
+    "service fixed",
+    "service waiting"
+  ],
+  "solution": [
+    "/",
+    "b",
+    "r",
+    "o",
+    "k",
+    "e",
+    "n",
+    "Enter",
+    "c",
+    "w",
+    "f",
+    "i",
+    "x",
+    "e",
+    "d",
+    "Escape"
+  ],
+  "focusCommand": "/ → cw"
+}

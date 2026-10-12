@@ -1,0 +1,46 @@
+{
+  "id": "lesson-basic-movement",
+  "version": 1,
+  "name": "Basic Movement",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 2
+  },
+  "instructions": "Use h, j, k, l to move the cursor. Reach the target character '$'.",
+  "initialContent": [
+    "function checkout(cart) {",
+    "  const subtotal = sum(cart);",
+    "  const tax = subtotal * 0.1;",
+    "  const total = subtotal + tax;",
+    "  logger.info('checkout ready');",
+    "  return total; // $",
+    "}"
+  ],
+  "target": {
+    "row": 5,
+    "col": 19
+  },
+  "focusCommand": "hjkl",
+  "initialCursor": {
+    "row": 1,
+    "col": 5
+  },
+  "solution": [
+    "4",
+    "j",
+    "0",
+    "1",
+    "9",
+    "l"
+  ]
+}

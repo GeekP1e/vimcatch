@@ -1,0 +1,40 @@
+{
+  "id": "lesson-match-brackets",
+  "version": 1,
+  "name": "Matching Brackets (%)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "movement"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice % as taught in Vim Tutor."
+    ],
+    "order": 27.1
+  },
+  "instructions": "The cursor is on the opening '('. Press % to jump to its matching ')' across the nested pair.",
+  "initialContent": [
+    "call(inner(value))"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 4
+  },
+  "target": {
+    "row": 0,
+    "col": 17
+  },
+  "solution": [
+    "%"
+  ],
+  "focusCommand": "%"
+}

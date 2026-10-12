@@ -1,0 +1,56 @@
+{
+  "id": "lesson-record-macro",
+  "version": 1,
+  "name": "Record a Macro (qa)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-06",
+    "difficulty": "intermediate",
+    "tags": [
+      "macros",
+      "registers"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-edit-file"
+    ],
+    "learningObjectives": [
+      "Record commands into register a",
+      "Replay a macro with @a"
+    ],
+    "order": 35
+  },
+  "instructions": "Start recording into register a with qa. Press A, add '!', press Esc, then j, and stop recording with q. Apply the macro to the next two lines by pressing @a twice.",
+  "initialContent": [
+    "Review the release notes before deployment",
+    "Run the complete test suite after the build",
+    "Deploy the new version when all checks pass",
+    "Monitor production metrics after deployment"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "Review the release notes before deployment!",
+    "Run the complete test suite after the build!",
+    "Deploy the new version when all checks pass!",
+    "Monitor production metrics after deployment"
+  ],
+  "solution": [
+    "q",
+    "a",
+    "A",
+    "!",
+    "Escape",
+    "j",
+    "q",
+    "@",
+    "a",
+    "@",
+    "a"
+  ],
+  "focusCommand": "qa → A! → Esc → j → q → @a → @a"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "lesson-yank-put-copy-paste",
+  "version": 1,
+  "name": "Yank & Put (Copy/Paste)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 17
+  },
+  "instructions": "Share NODE_ENV with the worker and scheduler services. Yank it with yy, use 3j and p for the worker, then jump to the last line with G and paste again with p.",
+  "initialContent": [
+    "services:",
+    "  api:",
+    "    environment:",
+    "      - NODE_ENV=production",
+    "  worker:",
+    "    environment:",
+    "      - QUEUE=emails",
+    "  scheduler:",
+    "    environment:",
+    "      - CRON=0 * * * *"
+  ],
+  "targetContent": [
+    "services:",
+    "  api:",
+    "    environment:",
+    "      - NODE_ENV=production",
+    "  worker:",
+    "    environment:",
+    "      - QUEUE=emails",
+    "      - NODE_ENV=production",
+    "  scheduler:",
+    "    environment:",
+    "      - CRON=0 * * * *",
+    "      - NODE_ENV=production"
+  ],
+  "focusCommand": "yy → 3j → p → G → p",
+  "initialCursor": {
+    "row": 3,
+    "col": 6
+  },
+  "solution": [
+    "y",
+    "y",
+    "3",
+    "j",
+    "p",
+    "G",
+    "p"
+  ]
+}

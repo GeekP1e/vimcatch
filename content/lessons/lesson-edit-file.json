@@ -1,0 +1,73 @@
+{
+  "id": "lesson-edit-file",
+  "version": 1,
+  "name": "Open a File (:e)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "files",
+      "ex-command"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-write-file"
+    ],
+    "learningObjectives": [
+      "Open a file with :e filename"
+    ],
+    "order": 30
+  },
+  "instructions": "Open notes.txt with :e notes.txt and Enter. The editor will show the file contents. Then change 'Status: draft' to 'Status: ready' and return to Normal mode with Esc.",
+  "initialContent": [
+    "# workspace",
+    "README.md",
+    "notes.txt",
+    "src/main.js"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "# Project notes",
+    "Status: ready",
+    "Practice Vim motions every day."
+  ],
+  "files": {
+    "notes.txt": [
+      "# Project notes",
+      "Status: draft",
+      "Practice Vim motions every day."
+    ]
+  },
+  "solution": [
+    ":",
+    "e",
+    " ",
+    "n",
+    "o",
+    "t",
+    "e",
+    "s",
+    ".",
+    "t",
+    "x",
+    "t",
+    "Enter",
+    "j",
+    "w",
+    "c",
+    "w",
+    "r",
+    "e",
+    "a",
+    "d",
+    "y",
+    "Escape"
+  ],
+  "focusCommand": ":e"
+}

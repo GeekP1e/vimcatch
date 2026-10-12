@@ -1,0 +1,45 @@
+{
+  "id": "lesson-delete-two-lines",
+  "version": 1,
+  "name": "Delete Two Lines (2dd)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice 2dd as taught in Vim Tutor."
+    ],
+    "order": 14.4
+  },
+  "instructions": "Press 2, d, d to delete both middle lines in one command.",
+  "initialContent": [
+    "steps:",
+    "  - run: npm run legacy-build",
+    "  - run: npm run legacy-upload",
+    "  - run: npm test"
+  ],
+  "initialCursor": {
+    "row": 1,
+    "col": 0
+  },
+  "targetContent": [
+    "steps:",
+    "  - run: npm test"
+  ],
+  "solution": [
+    "2",
+    "d",
+    "d"
+  ],
+  "focusCommand": "2dd"
+}

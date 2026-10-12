@@ -1,0 +1,41 @@
+{
+  "id": "lesson-change-word-cw",
+  "version": 1,
+  "name": "Change Word (cw)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 16
+  },
+  "instructions": "Use cw to change the log level from 'debug' to 'info'. Press Esc when done.",
+  "initialContent": [
+    "log_level: debug"
+  ],
+  "targetText": {
+    "line": 0,
+    "text": "log_level: info"
+  },
+  "focusCommand": "cw",
+  "initialCursor": {
+    "row": 0,
+    "col": 11
+  },
+  "solution": [
+    "c",
+    "w",
+    "i",
+    "n",
+    "f",
+    "o",
+    "Escape"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "lesson-visual-delete-v",
+  "version": 1,
+  "name": "Visual Selection (v)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-09",
+    "difficulty": "beginner",
+    "tags": [
+      "visual",
+      "editing"
+    ],
+    "estimatedTime": 45,
+    "prerequisites": [
+      "lesson-delete-character-x",
+      "lesson-counts-move-faster"
+    ],
+    "learningObjectives": [
+      "Select characters with v and a motion, then delete the selection with d."
+    ],
+    "order": 15.2
+  },
+  "instructions": "Set LOG_LEVEL to info. The cursor is on 'd'. Press v, then 5l to select 'debug_', then d to delete it.",
+  "initialContent": [
+    "LOG_LEVEL=debug_info"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 10
+  },
+  "targetContent": [
+    "LOG_LEVEL=info"
+  ],
+  "solution": [
+    "v",
+    "5",
+    "l",
+    "d"
+  ],
+  "focusCommand": "v → 5l → d"
+}

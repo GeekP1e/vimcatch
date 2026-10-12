@@ -1,0 +1,51 @@
+{
+  "id": "lesson-append-and-open-lines",
+  "version": 1,
+  "name": "Open a Line Below (o)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 10
+  },
+  "instructions": "Press o to open a line below 'npm install'. Type 'npm run build', then Esc.",
+  "initialContent": [
+    "npm install",
+    "npm test"
+  ],
+  "targetContent": [
+    "npm install",
+    "npm run build",
+    "npm test"
+  ],
+  "focusCommand": "o",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "o",
+    "n",
+    "p",
+    "m",
+    " ",
+    "r",
+    "u",
+    "n",
+    " ",
+    "b",
+    "u",
+    "i",
+    "l",
+    "d",
+    "Escape"
+  ]
+}

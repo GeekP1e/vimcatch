@@ -1,0 +1,40 @@
+{
+  "id": "lesson-delete-line-end",
+  "version": 1,
+  "name": "Delete to Line End (d$)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice d$ as taught in Vim Tutor."
+    ],
+    "order": 14.2
+  },
+  "instructions": "Press d, then $ to remove everything from the cursor to the end of the line.",
+  "initialContent": [
+    "PORT=8080 # temporary override"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 9
+  },
+  "targetContent": [
+    "PORT=8080"
+  ],
+  "solution": [
+    "d",
+    "$"
+  ],
+  "focusCommand": "d$"
+}

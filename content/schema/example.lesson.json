@@ -1,0 +1,31 @@
+{
+    "id": "lesson-example-movement",
+    "version": 1,
+    "name": "Example Movement",
+    "metadata": {
+        "revision": 1,
+        "author": "Your Name",
+        "githubUsername": "yourusername",
+        "created": "2026-07-10",
+        "difficulty": "beginner",
+        "tags": ["movement", "example"],
+        "estimatedTime": 45,
+        "prerequisites": [],
+        "order": 56,
+        "learningObjectives": [
+            "Understand how to use the 'x' command to delete a single character",
+            "Understand how to move the cursor to the character you want to delete"
+        ]
+    },
+    "instructions": "Press j to move down to the second line.",
+    "initialContent": [
+        "First line",
+        "Second line"
+    ],
+    "target": {
+        "row": 1,
+        "col": 0
+    },
+    "solution": ["j"],
+    "focusCommand": "j"
+}

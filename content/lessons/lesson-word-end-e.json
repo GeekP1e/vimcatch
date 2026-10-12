@@ -1,0 +1,46 @@
+{
+  "id": "lesson-word-end-e",
+  "version": 1,
+  "name": "Word End (e)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "movement"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice e as taught in Vim Tutor."
+    ],
+    "order": 3.2
+  },
+  "instructions": "Press e four times to move forward from 'build' to the end of 'production'.",
+  "initialContent": [
+    "# Release checklist",
+    "Build artifacts are signed.",
+    "Upload build artifacts to production storage",
+    "Verify deployment health."
+  ],
+  "initialCursor": {
+    "row": 2,
+    "col": 7
+  },
+  "target": {
+    "row": 2,
+    "col": 35
+  },
+  "solution": [
+    "e",
+    "e",
+    "e",
+    "e"
+  ],
+  "focusCommand": "e"
+}

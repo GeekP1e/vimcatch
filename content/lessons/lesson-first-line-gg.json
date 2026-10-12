@@ -1,0 +1,43 @@
+{
+  "id": "lesson-first-line-gg",
+  "version": 1,
+  "name": "First Line (gg)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-line-jumps"
+    ],
+    "learningObjectives": [
+      "Jump to the first line with gg."
+    ],
+    "order": 6
+  },
+  "instructions": "Press g twice (gg) to jump to the first line. The cursor starts on the last line; reach the first character of the first line.",
+  "initialContent": [
+    "import { createServer } from './server.js';",
+    "const server = createServer();",
+    "await server.listen(8080);",
+    "export default server;"
+  ],
+  "target": {
+    "row": 0,
+    "col": 0
+  },
+  "focusCommand": "gg",
+  "initialCursor": {
+    "row": 3,
+    "col": 0
+  },
+  "solution": [
+    "g",
+    "g"
+  ]
+}

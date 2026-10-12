@@ -1,0 +1,15 @@
+{
+    "name": "Custom Start Cursor",
+    "instructions": "Test that the cursor starts at {row: 1, col: 5}",
+    "initialContent": [
+        "First line",
+        "Second line",
+        "Third line"
+    ],
+    "initialCursor": { "row": 1, "col": 5 },
+    "targetContent": [
+        "First line",
+        "Second line",
+        "Third line"
+    ]
+}

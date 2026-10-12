@@ -1,0 +1,44 @@
+{
+  "id": "lesson-write-file",
+  "version": 1,
+  "name": "Write a File (:w)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "files",
+      "ex-command"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-search-navigation-n-n"
+    ],
+    "learningObjectives": [
+      "Save the current buffer with :w"
+    ],
+    "order": 29
+  },
+  "instructions": "Save the current buffer. Type :w and press Enter.",
+  "initialContent": [
+    "# server.env",
+    "HOST=localhost",
+    "PORT=5180",
+    "LOG_LEVEL=debug"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "exCommands": [
+    "w"
+  ],
+  "solution": [
+    ":",
+    "w",
+    "Enter"
+  ],
+  "focusCommand": ":w"
+}

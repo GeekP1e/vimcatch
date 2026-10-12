@@ -1,0 +1,47 @@
+{
+  "id": "lesson-buffer-route-mix",
+  "version": 1,
+  "name": "Top, Word, End",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "movement"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-first-line-gg",
+      "lesson-word-movement",
+      "lesson-line-bounds-0-and"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 19
+  },
+  "instructions": "Press gg to return to the top, w to reach the next word, then e to reach the end of 'target'.",
+  "initialContent": [
+    "const target = config.port;",
+    "validate(config);",
+    "startServer(config);"
+  ],
+  "initialCursor": {
+    "row": 2,
+    "col": 0
+  },
+  "target": {
+    "row": 0,
+    "col": 11
+  },
+  "solution": [
+    "g",
+    "g",
+    "w",
+    "e"
+  ],
+  "focusCommand": "gg → w → e"
+}

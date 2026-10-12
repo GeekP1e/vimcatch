@@ -1,0 +1,40 @@
+{
+  "id": "lesson-replace-character-r",
+  "version": 1,
+  "name": "Replace a Character (r)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice r in a focused task."
+    ],
+    "order": 15
+  },
+  "instructions": "The cursor is on '?'. Press r, then ! to replace it without entering INSERT mode.",
+  "initialContent": [
+    "Ready?"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 5
+  },
+  "targetContent": [
+    "Ready!"
+  ],
+  "solution": [
+    "r",
+    "!"
+  ],
+  "focusCommand": "r"
+}

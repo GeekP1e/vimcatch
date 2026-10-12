@@ -1,0 +1,23 @@
+{
+  "id": "lesson-visual-change-c",
+  "version": 1,
+  "name": "Change Visual Selection (c)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-09",
+    "difficulty": "beginner",
+    "tags": ["visual", "editing"],
+    "estimatedTime": 45,
+    "prerequisites": ["lesson-visual-delete-v"],
+    "learningObjectives": ["Replace selected characters with c, then return to NORMAL with Esc."],
+    "order": 15.3
+  },
+  "instructions": "Move the cache directory from /tmp/cache to /var/cache. The cursor is on 't'. Press v, then 2l to select 'tmp'. Press c, type 'var', then Esc.",
+  "initialContent": ["CACHE_DIR=/tmp/cache"],
+  "initialCursor": {"row": 0, "col": 11},
+  "targetContent": ["CACHE_DIR=/var/cache"],
+  "solution": ["v", "2", "l", "c", "v", "a", "r", "Escape"],
+  "focusCommand": "v → 2l → c → Esc"
+}

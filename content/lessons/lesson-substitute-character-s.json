@@ -1,0 +1,42 @@
+{
+  "id": "lesson-substitute-character-s",
+  "version": 1,
+  "name": "Substitute a Character (s)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-10-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-replace-character-r"
+    ],
+    "learningObjectives": [
+      "Replace one character with multiple characters using s."
+    ],
+    "order": 15.1
+  },
+  "instructions": "The API URL contains an invalid 'x'. Press s on 'x', type '//', then Esc.",
+  "initialContent": [
+    "API_URL=http:xlocalhost:3000"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 13
+  },
+  "targetContent": [
+    "API_URL=http://localhost:3000"
+  ],
+  "solution": [
+    "s",
+    "/",
+    "/",
+    "Escape"
+  ],
+  "focusCommand": "s"
+}

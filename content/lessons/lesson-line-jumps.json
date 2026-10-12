@@ -1,0 +1,41 @@
+{
+  "id": "lesson-line-jumps",
+  "version": 1,
+  "name": "Line Jumps",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 5
+  },
+  "instructions": "Press G to jump to the last line, then $ to move to its last character.",
+  "initialContent": [
+    "import { loadConfig } from './config.js';",
+    "",
+    "const config = loadConfig();",
+    "const server = createServer(config);",
+    "await server.start();",
+    "console.log('Server started');"
+  ],
+  "target": {
+    "row": 5,
+    "col": 29
+  },
+  "focusCommand": "G → $",
+  "initialCursor": {
+    "row": 2,
+    "col": 0
+  },
+  "solution": [
+    "G",
+    "$"
+  ]
+}

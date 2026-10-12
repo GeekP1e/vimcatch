@@ -1,0 +1,53 @@
+{
+  "id": "lesson-search-forward",
+  "version": 1,
+  "name": "Search Forward (/)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 25
+  },
+  "instructions": "Press / then type 'target' and Enter, then press n once to jump to the next occurrence.",
+  "initialContent": [
+    "const target = config.primary;",
+    "validate(target);",
+    "return target;"
+  ],
+  "target": {
+    "row": 1,
+    "col": 9
+  },
+  "requires": [
+    {
+      "type": "search",
+      "direction": "forward",
+      "query": "target",
+      "minNavigations": 1
+    }
+  ],
+  "focusCommand": "/",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "/",
+    "t",
+    "a",
+    "r",
+    "g",
+    "e",
+    "t",
+    "Enter",
+    "n"
+  ]
+}

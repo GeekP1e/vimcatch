@@ -1,0 +1,33 @@
+{
+  "id": "lesson-insert-variants-review",
+  "version": 1,
+  "name": "Insert Positions (i / a / A)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": ["normal", "basics"],
+    "estimatedTime": 60,
+    "prerequisites": ["lesson-insert-before-i", "lesson-insert-mode", "lesson-append-line-end"],
+    "learningObjectives": ["Distinguish insertion before the cursor, after the cursor and at line end."],
+    "order": 9.2
+  },
+  "instructions": "Complete three CI commands. On line 2 use i to add 'CI=1 '. On line 3 move to the end of 'npm' and use a to add ' run'. On line 4 use A to append ' --watch'. Press Esc after each edit.",
+  "initialContent": [
+    "# CI commands",
+    "npm test",
+    "npm test",
+    "npm run test"
+  ],
+  "initialCursor": { "row": 1, "col": 0 },
+  "targetContent": [
+    "# CI commands",
+    "CI=1 npm test",
+    "npm run test",
+    "npm run test --watch"
+  ],
+  "focusCommand": "i → a → A",
+  "solution": ["i", "C", "I", "=", "1", " ", "Escape", "j", "0", "2", "l", "a", " ", "r", "u", "n", "Escape", "j", "A", " ", "-", "-", "w", "a", "t", "c", "h", "Escape"]
+}

@@ -1,0 +1,397 @@
+// VimCatch Game - Game State Management
+
+// Private state variables (not exported)
+let _content = [];
+let _cursor = { row: 0, col: 0 };
+let _mode = 'NORMAL';
+let _visualAnchor = null;
+let _visualLinewise = false;
+let _currentLevel = 0;
+let _completedLessonIds = new Set();
+let _commandHistory = '';
+let _commandLog = [];
+let _yankedLine = null;
+let _replacePending = false;
+let _countBuffer = '';
+let _undoStack = [];
+let _redoStack = [];
+let _usedUndo = false;
+let _usedRedoAfterUndo = false;
+let _lastExCommand = null;
+let _openedFile = null;
+let _searchMode = false;
+let _searchQuery = '';
+let _lastSearchQuery = null;
+let _lastSearchDirection = 'forward';
+let _searchMatches = [];
+let _currentMatchIndex = -1;
+let _usedSearchInLevel = false;
+let _navCountSinceSearch = 0;
+let _badges = new Set();
+let _practicedCommands = new Set();
+let _xp = 0;
+let _combo = 0;
+let _levelSessionId = 0;
+
+// Challenge Mode State
+let _challengeMode = false;
+let _currentChallenge = null;
+let _challengeTimerInterval = null;
+let _challengeStartTime = null;
+let _challengeScoreValue = 0;
+let _challengeProgressValue = 0;
+let _currentTaskIndex = 0;
+
+// State getter functions
+export const getContent = () => [..._content];
+export const getCursor = () => ({ ..._cursor });
+export const getMode = () => _mode;
+export const setVisualAnchor = (cursor) => { _visualAnchor = { ...cursor }; };
+export const getVisualLinewise = () => _visualLinewise;
+export const setVisualLinewise = (linewise) => { _visualLinewise = linewise; };
+export const getVisualSelection = () => {
+    if (_mode !== 'VISUAL' || !_visualAnchor) return null;
+    const anchorFirst = _visualAnchor.row < _cursor.row || (_visualAnchor.row === _cursor.row && _visualAnchor.col <= _cursor.col);
+    if (_visualLinewise) {
+        const startRow = Math.min(_visualAnchor.row, _cursor.row);
+        const endRow = Math.max(_visualAnchor.row, _cursor.row);
+        return { start: { row: startRow, col: 0 }, end: { row: endRow, col: Math.max(0, _content[endRow].length - 1) }, linewise: true };
+    }
+    return {
+        start: { ...(anchorFirst ? _visualAnchor : _cursor) },
+        end: { ...(anchorFirst ? _cursor : _visualAnchor) }
+    };
+};
+export const getCurrentLevel = () => _currentLevel;
+export const getCompletedLessonIds = () => new Set(_completedLessonIds);
+export const setCompletedLessonIds = (ids) => { _completedLessonIds = new Set(ids); };
+export const markLessonCompleted = (id) => { _completedLessonIds.add(id); };
+export const getCommandHistory = () => _commandHistory;
+export const getCommandLog = () => [..._commandLog];
+const cloneYankedText = value => Array.isArray(value) ? [...value]
+    : (value && typeof value === 'object' ? { ...value } : value);
+export const getYankedLine = () => cloneYankedText(_yankedLine);
+export const getReplacePending = () => _replacePending;
+export const getCountBuffer = () => _countBuffer;
+export const getUndoStack = () => [..._undoStack];
+export const getRedoStack = () => [..._redoStack];
+export const getUsedUndo = () => _usedUndo;
+export const getUsedRedoAfterUndo = () => _usedRedoAfterUndo;
+export const getLastExCommand = () => _lastExCommand;
+export const getOpenedFile = () => _openedFile;
+export const setOpenedFile = (filename) => { _openedFile = filename; };
+export const getSearchMode = () => _searchMode;
+export const getSearchQuery = () => _searchQuery;
+export const getLastSearchQuery = () => _lastSearchQuery;
+export const getLastSearchDirection = () => _lastSearchDirection;
+export const getSearchMatches = () => [..._searchMatches];
+export const getCurrentMatchIndex = () => _currentMatchIndex;
+export const getUsedSearchInLevel = () => _usedSearchInLevel;
+export const getNavCountSinceSearch = () => _navCountSinceSearch;
+export const getBadges = () => new Set(_badges);
+export const getPracticedCommands = () => new Set(_practicedCommands);
+export const getXp = () => _xp;
+export const getCombo = () => _combo;
+export const getChallengeMode = () => _challengeMode;
+export const getCurrentChallenge = () => _currentChallenge;
+export const getChallengeTimerInterval = () => _challengeTimerInterval;
+export const getChallengeStartTime = () => _challengeStartTime;
+export const getChallengeScoreValue = () => _challengeScoreValue;
+export const getChallengeProgressValue = () => _challengeProgressValue;
+export const getCurrentTaskIndex = () => _currentTaskIndex;
+export const getLevelSessionId = () => _levelSessionId;
+
+// State setter functions
+export const setContent = (newContent) => {
+    _content = [...newContent];
+};
+
+export const setCursor = (newCursor) => {
+    _cursor = { ...newCursor };
+};
+
+export const setCursorRow = (newRow) => {
+    _cursor.row = newRow;
+};
+
+export const setCursorCol = (newCol) => {
+    _cursor.col = newCol;
+};
+
+export const setMode = (newMode) => {
+    _mode = newMode;
+    if (newMode !== 'VISUAL') {
+        _visualAnchor = null;
+        _visualLinewise = false;
+    }
+};
+
+export const setCurrentLevel = (newLevel) => {
+    _currentLevel = newLevel;
+};
+
+export const setCommandHistory = (newHistory) => {
+    _commandHistory = newHistory;
+};
+
+export const setCommandLog = (newLog) => {
+    _commandLog = [...newLog];
+};
+
+export const setYankedLine = (newYankedLine) => {
+    _yankedLine = cloneYankedText(newYankedLine);
+};
+
+export const setReplacePending = (newReplacePending) => {
+    _replacePending = newReplacePending;
+};
+
+export const setCountBuffer = (newCountBuffer) => {
+    _countBuffer = newCountBuffer;
+};
+
+export const setSearchMode = (newSearchMode) => {
+    _searchMode = newSearchMode;
+};
+
+export const setSearchQuery = (newSearchQuery) => {
+    _searchQuery = newSearchQuery;
+};
+
+export const setLastSearchQuery = (newLastSearchQuery) => {
+    _lastSearchQuery = newLastSearchQuery;
+};
+
+export const setLastSearchDirection = (newLastSearchDirection) => {
+    _lastSearchDirection = newLastSearchDirection;
+};
+
+export const setSearchMatches = (newSearchMatches) => {
+    _searchMatches = [...newSearchMatches];
+};
+
+export const setCurrentMatchIndex = (newCurrentMatchIndex) => {
+    _currentMatchIndex = newCurrentMatchIndex;
+};
+
+export const setUsedSearchInLevel = (newUsedSearchInLevel) => {
+    _usedSearchInLevel = newUsedSearchInLevel;
+};
+
+export const setNavCountSinceSearch = (newNavCountSinceSearch) => {
+    _navCountSinceSearch = newNavCountSinceSearch;
+};
+
+export const setUsedUndo = (usedUndo) => {
+    _usedUndo = usedUndo;
+};
+
+export const setUsedRedoAfterUndo = (usedRedoAfterUndo) => {
+    _usedRedoAfterUndo = usedRedoAfterUndo;
+};
+
+export const setLastExCommand = (newLastExCommand) => {
+    _lastExCommand = newLastExCommand;
+};
+
+export const setChallengeMode = (newChallengeMode) => {
+    _challengeMode = newChallengeMode;
+};
+
+export const setCurrentChallenge = (newCurrentChallenge) => {
+    _currentChallenge = newCurrentChallenge;
+};
+
+export const setChallengeTimerInterval = (newChallengeTimerInterval) => {
+    _challengeTimerInterval = newChallengeTimerInterval;
+};
+
+export const setChallengeStartTime = (newChallengeStartTime) => {
+    _challengeStartTime = newChallengeStartTime;
+};
+
+export const setChallengeScoreValue = (newChallengeScoreValue) => {
+    _challengeScoreValue = newChallengeScoreValue;
+};
+
+export const setChallengeProgressValue = (newChallengeProgressValue) => {
+    _challengeProgressValue = newChallengeProgressValue;
+};
+
+export const setCurrentTaskIndex = (newCurrentTaskIndex) => {
+    _currentTaskIndex = newCurrentTaskIndex;
+};
+
+// Utility Functions
+export const cloneState = () => ({
+    content: [..._content],
+    cursor: { ..._cursor },
+    mode: _mode,
+    yankedLine: getYankedLine()
+});
+
+export const pushUndo = () => {
+    pushUndoState(cloneState());
+    _redoStack = [];
+};
+
+export const pushUndoState = (state) => {
+    _undoStack.push(state);
+    if (_undoStack.length > 200) _undoStack.shift();
+};
+
+export const escapeHtml = (s) => s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+// Treat Ctrl-[ as Escape (common Vim alias)
+export const isEscapeKey = (e) => e.key === 'Escape' || (e.key === '[' && e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey);
+
+// State Reset Functions
+export const resetGameState = () => {
+    _openedFile = null;
+    _levelSessionId++;
+    _content = [];
+    _cursor = { row: 0, col: 0 };
+    _mode = 'NORMAL';
+    _visualAnchor = null;
+    _visualLinewise = false;
+    _commandHistory = '';
+    _commandLog = [];
+    _yankedLine = null;
+    _replacePending = false;
+    _countBuffer = '';
+    _undoStack = [];
+    _redoStack = [];
+    _usedUndo = false;
+    _usedRedoAfterUndo = false;
+    _lastExCommand = null;
+    _searchMode = false;
+    _searchQuery = '';
+    _lastSearchQuery = null;
+    _lastSearchDirection = 'forward';
+    _searchMatches = [];
+    _currentMatchIndex = -1;
+    _usedSearchInLevel = false;
+    _navCountSinceSearch = 0;
+    
+    // Also clear badges and practiced commands
+    _badges = new Set();
+    _practicedCommands = new Set();
+    _completedLessonIds = new Set();
+};
+
+export const resetChallengeState = () => {
+    _challengeMode = false;
+    _currentChallenge = null;
+    _challengeStartTime = null;
+    _currentTaskIndex = 0;
+    _challengeScoreValue = 0;
+    _challengeProgressValue = 0;
+    if (_challengeTimerInterval) {
+        clearInterval(_challengeTimerInterval);
+        _challengeTimerInterval = null;
+    }
+};
+
+export const resetLevelState = () => {
+    _replacePending = false;
+    _countBuffer = '';
+    _visualAnchor = null;
+    _visualLinewise = false;
+    _openedFile = null;
+    _levelSessionId++;
+    _usedUndo = false;
+    _usedRedoAfterUndo = false;
+    _lastExCommand = null;
+    _usedSearchInLevel = false;
+    _searchMode = false;
+    _searchQuery = '';
+    _lastSearchQuery = null;
+    _lastSearchDirection = 'forward';
+    _searchMatches = [];
+    _currentMatchIndex = -1;
+    _navCountSinceSearch = 0;
+    _commandHistory = '';
+    _commandLog = [];
+    _yankedLine = null;
+    // Undo/redo history belongs to a single editing session. Without this,
+    // pressing `u` on a freshly-loaded level (or challenge task) restored
+    // the PREVIOUS level's buffer while the UI stayed put (issues #12, #6).
+    _undoStack = [];
+    _redoStack = [];
+};
+
+// Content manipulation functions
+export const updateContentLine = (row, newLine) => {
+    if (row >= 0 && row < _content.length) {
+        _content[row] = newLine;
+    }
+};
+
+export const insertContentLine = (row, newLine) => {
+    _content.splice(row, 0, newLine);
+};
+
+export const removeContentLine = (row) => {
+    if (row >= 0 && row < _content.length) {
+        return _content.splice(row, 1)[0];
+    }
+    return null;
+};
+
+export const addContentLine = (newLine) => {
+    _content.push(newLine);
+};
+
+// Command history manipulation
+export const appendCommandHistory = (command) => {
+    _commandHistory += command;
+};
+
+export const clearCommandHistory = () => {
+    _commandHistory = '';
+};
+
+export const appendCommandLog = (log) => {
+    _commandLog.push(log);
+};
+
+export const clearCommandLog = () => {
+    _commandLog = [];
+};
+
+// Search manipulation
+// Badge manipulation
+export const addBadge = (badge) => {
+    _badges.add(badge);
+};
+
+export const setBadges = (badges) => {
+    _badges = new Set(badges);
+};
+
+export const setPracticedCommands = (cmds) => { _practicedCommands = new Set(cmds); };
+export const setXp = (xp) => { _xp = xp; };
+export const setCombo = (combo) => { _combo = combo; };
+
+export const addPracticedCommand = (command) => {
+    _practicedCommands.add(command);
+};
+
+// Undo/Redo manipulation
+export const popUndo = () => {
+    return _undoStack.pop();
+};
+
+export const pushRedo = (state) => {
+    _redoStack.push(state);
+};
+
+export const popRedo = () => {
+    return _redoStack.pop();
+};
+

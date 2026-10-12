@@ -1,0 +1,50 @@
+{
+  "id": "lesson-insert-mode",
+  "version": 1,
+  "name": "Insert Mode",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 9
+  },
+  "instructions": "Complete the release note. Press a, type ' is ready!', then Esc.",
+  "initialContent": [
+    "# Release notes",
+    "",
+    "Version 2.4.0",
+    "",
+    "Deployment"
+  ],
+  "targetText": {
+    "line": 4,
+    "text": "Deployment is ready!"
+  },
+  "focusCommand": "a",
+  "initialCursor": {
+    "row": 4,
+    "col": 9
+  },
+  "solution": [
+    "a",
+    " ",
+    "i",
+    "s",
+    " ",
+    "r",
+    "e",
+    "a",
+    "d",
+    "y",
+    "!",
+    "Escape"
+  ]
+}

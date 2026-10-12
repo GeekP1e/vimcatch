@@ -1,0 +1,47 @@
+{
+  "id": "lesson-word-backward-b",
+  "version": 1,
+  "name": "Previous Word (b)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "movement"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice b as taught in Vim Tutor."
+    ],
+    "order": 3.1
+  },
+  "instructions": "Press b four times to move backward from 'test' to the start of 'compose'.",
+  "initialContent": [
+    "# CI job",
+    "npm ci",
+    "npm run build",
+    "docker compose run api npm test",
+    "docker compose down"
+  ],
+  "initialCursor": {
+    "row": 3,
+    "col": 27
+  },
+  "target": {
+    "row": 3,
+    "col": 7
+  },
+  "solution": [
+    "b",
+    "b",
+    "b",
+    "b"
+  ],
+  "focusCommand": "b"
+}

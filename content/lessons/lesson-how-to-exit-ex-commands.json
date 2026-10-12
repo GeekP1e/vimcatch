@@ -1,0 +1,39 @@
+{
+  "id": "lesson-how-to-exit-ex-commands",
+  "version": 1,
+  "name": "Quit (:q)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 1
+  },
+  "instructions": "Type :q to quit, then press Enter.",
+  "initialContent": [
+    "# project.env",
+    "APP_NAME=vimcatch",
+    "APP_ENV=development",
+    "LOG_LEVEL=info"
+  ],
+  "exCommands": [
+    "q"
+  ],
+  "focusCommand": ":q",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    ":",
+    "q",
+    "Enter"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "lesson-save-and-quit",
+  "version": 1,
+  "name": "Save and Quit (:wq)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-write-file"
+    ],
+    "learningObjectives": [
+      "Save and quit with :wq."
+    ],
+    "order": 29.1
+  },
+  "instructions": "Type :wq to save and quit, then press Enter.",
+  "initialContent": [
+    "# release-notes.md",
+    "",
+    "## Ready for release",
+    "- Add keyboard navigation",
+    "- Fix mobile layout"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "exCommands": [
+    "wq"
+  ],
+  "focusCommand": ":wq",
+  "solution": [
+    ":",
+    "w",
+    "q",
+    "Enter"
+  ]
+}

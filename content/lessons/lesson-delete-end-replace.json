@@ -1,0 +1,40 @@
+{
+  "id": "lesson-delete-end-replace",
+  "version": 1,
+  "name": "Delete End & Replace",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 23
+  },
+  "instructions": "Remove the trailing comment '// TODO: verify URL' without changing apiUrl, then change the deployment status marker from '?' to '!'.",
+  "initialContent": [
+    "const apiUrl = '/api'; // TODO: verify URL",
+    "deployment status: ?"
+  ],
+  "targetContent": [
+    "const apiUrl = '/api';",
+    "deployment status: !"
+  ],
+  "focusCommand": "D → j → r",
+  "initialCursor": {
+    "row": 0,
+    "col": 22
+  },
+  "solution": [
+    "D",
+    "j",
+    "$",
+    "r",
+    "!"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "lesson-macro-prefix-mix",
+  "version": 1,
+  "name": "Prefix Every Line",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "intermediate",
+    "tags": [
+      "normal",
+      "macros"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-record-macro",
+      "lesson-repeat-macro"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 37
+  },
+  "instructions": "Turn the first three incident updates into a Markdown quote. Record qa0i> <Space><Esc>jq, run it with @a, then repeat it with @@.",
+  "initialContent": [
+    "Deployment failed at 14:32.",
+    "Rollback completed successfully.",
+    "Root cause analysis is pending.",
+    "Incident owner: platform-team"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "> Deployment failed at 14:32.",
+    "> Rollback completed successfully.",
+    "> Root cause analysis is pending.",
+    "Incident owner: platform-team"
+  ],
+  "solution": [
+    "q",
+    "a",
+    "0",
+    "i",
+    ">",
+    " ",
+    "Escape",
+    "j",
+    "q",
+    "@",
+    "a",
+    "@",
+    "@"
+  ],
+  "focusCommand": "qa → 0i> Space → Esc → j → q → @a → @@"
+}

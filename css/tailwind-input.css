@@ -1,0 +1,108 @@
+/* Source for the generated css/tailwind.css — build with `npm run build:css`. */
+@import "tailwindcss" source(none);
+@config "../tailwind.config.js";
+
+/* Preserve the existing button and input appearance after the Tailwind upgrade. */
+@layer base {
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--color-gray-400);
+    }
+}
+
+.practice-target {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+    border-bottom: 2px solid #f59e0b;
+}
+
+#editor-workspace.golf-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+#editor-workspace.golf-split > div,
+#editor-workspace.golf-split .vim-screen {
+    display: flex;
+    flex-direction: column;
+}
+
+#editor-workspace.golf-split .vim-screen,
+#editor-workspace.golf-split .vim-editor {
+    flex: 1;
+}
+
+#editor-workspace.golf-split .line-number {
+    flex: 0 0 3rem;
+}
+
+#editor-workspace .editor-line.diff-removed {
+    background: rgba(239, 68, 68, 0.16);
+}
+
+#editor-workspace .editor-line.diff-added {
+    background: rgba(34, 197, 94, 0.16);
+}
+
+.diff-char-removed {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.diff-char-added {
+    background: rgba(34, 197, 94, 0.3);
+}
+
+.diff-placeholder {
+    background: repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(134, 169, 145, 0.12) 4px, rgba(134, 169, 145, 0.12) 5px);
+}
+
+#editor-workspace > div {
+    min-width: 0;
+}
+
+.editor-pane-label {
+    color: #86efac;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+#editor-workspace .vim-editor {
+    overflow-x: auto;
+}
+
+#editor-workspace.golf-split .vim-editor {
+    min-height: min(320px, 46vh);
+}
+
+@media (max-width: 768px) {
+    #editor-workspace.golf-split {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+#session-actions button {
+    min-width: 11rem;
+    height: 2.25rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+    border-radius: 0.35rem;
+    justify-content: center;
+}
+
+#practice-mode {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#practice-mode .practice-mode-option {
+    height: 2.5rem;
+    min-width: 0;
+}

@@ -1,0 +1,62 @@
+{
+  "id": "lesson-copy-append-mix",
+  "version": 1,
+  "name": "Duplicate a Test Command",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [
+      "lesson-yank-put-copy-paste",
+      "lesson-append-and-open-lines"
+    ],
+    "learningObjectives": [
+      "Combine previously learned commands to complete a new task."
+    ],
+    "order": 21
+  },
+  "instructions": "Keep the regular test command and add a coverage variant below it. Duplicate 'npm test' with yy and p, then use G$a to append ' --coverage'. Press Esc.",
+  "initialContent": [
+    "#!/usr/bin/env bash",
+    "npm run build",
+    "npm test"
+  ],
+  "initialCursor": {
+    "row": 2,
+    "col": 0
+  },
+  "targetContent": [
+    "#!/usr/bin/env bash",
+    "npm run build",
+    "npm test",
+    "npm test --coverage"
+  ],
+  "solution": [
+    "y",
+    "y",
+    "p",
+    "G",
+    "$",
+    "a",
+    " ",
+    "-",
+    "-",
+    "c",
+    "o",
+    "v",
+    "e",
+    "r",
+    "a",
+    "g",
+    "e",
+    "Escape"
+  ],
+  "focusCommand": "yy → p → G$a"
+}

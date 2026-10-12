@@ -1,0 +1,46 @@
+{
+  "id": "lesson-append-line-end",
+  "version": 1,
+  "name": "Append at Line End (A)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "basics"
+    ],
+    "estimatedTime": 40,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice A as taught in Vim Tutor."
+    ],
+    "order": 9.1
+  },
+  "instructions": "Complete the deployment status. Press uppercase A, type ' ready', then Esc.",
+  "initialContent": [
+    "Deployment is"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 1
+  },
+  "targetContent": [
+    "Deployment is ready"
+  ],
+  "solution": [
+    "A",
+    " ",
+    "r",
+    "e",
+    "a",
+    "d",
+    "y",
+    "Escape"
+  ],
+  "focusCommand": "A"
+}

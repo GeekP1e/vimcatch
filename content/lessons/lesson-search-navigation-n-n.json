@@ -1,0 +1,51 @@
+{
+  "id": "lesson-search-navigation-n-n",
+  "version": 1,
+  "name": "Search Navigation (n/N)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 27
+  },
+  "instructions": "Search for 'foo' with /foo then press n twice to reach the third occurrence.",
+  "initialContent": [
+    "const foo = createClient();",
+    "validate(foo);",
+    "return foo;"
+  ],
+  "target": {
+    "row": 2,
+    "col": 7
+  },
+  "requires": [
+    {
+      "type": "search",
+      "direction": "forward",
+      "query": "foo",
+      "minNavigations": 2
+    }
+  ],
+  "focusCommand": "n",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "/",
+    "f",
+    "o",
+    "o",
+    "Enter",
+    "n",
+    "n"
+  ]
+}

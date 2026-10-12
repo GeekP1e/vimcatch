@@ -1,0 +1,44 @@
+{
+  "id": "lesson-insert-before-i",
+  "version": 1,
+  "name": "Insert Before (i)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "basics"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice i in a focused task."
+    ],
+    "order": 8
+  },
+  "instructions": "Press i, type 'run ', then Esc. Turn 'server' into 'run server'.",
+  "initialContent": [
+    "server --port 8080"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "run server --port 8080"
+  ],
+  "solution": [
+    "i",
+    "r",
+    "u",
+    "n",
+    " ",
+    "Escape"
+  ],
+  "focusCommand": "i"
+}

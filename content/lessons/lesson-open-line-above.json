@@ -1,0 +1,54 @@
+{
+  "id": "lesson-open-line-above",
+  "version": 1,
+  "name": "Open a Line Above (O)",
+  "metadata": {
+    "revision": 1,
+    "author": "GeekP1e",
+    "githubUsername": "GeekP1e",
+    "created": "2026-10-06",
+    "difficulty": "beginner",
+    "tags": [
+      "normal",
+      "editing"
+    ],
+    "estimatedTime": 30,
+    "prerequisites": [
+      "lesson-basic-movement"
+    ],
+    "learningObjectives": [
+      "Practice O in a focused task."
+    ],
+    "order": 11
+  },
+  "instructions": "Press uppercase O to open a line above 'npm run build'. Type 'npm install', then Esc.",
+  "initialContent": [
+    "npm run build",
+    "npm test"
+  ],
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "targetContent": [
+    "npm install",
+    "npm run build",
+    "npm test"
+  ],
+  "solution": [
+    "O",
+    "n",
+    "p",
+    "m",
+    " ",
+    "i",
+    "n",
+    "s",
+    "t",
+    "a",
+    "l",
+    "l",
+    "Escape"
+  ],
+  "focusCommand": "O"
+}

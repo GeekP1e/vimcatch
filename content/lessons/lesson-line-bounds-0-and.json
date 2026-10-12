@@ -1,0 +1,36 @@
+{
+  "id": "lesson-line-bounds-0-and",
+  "version": 1,
+  "name": "Line End ($)",
+  "metadata": {
+    "revision": 1,
+    "author": "vimcatch",
+    "githubUsername": "vimcatch",
+    "created": "2026-07-09",
+    "difficulty": "beginner",
+    "tags": [
+      "normal"
+    ],
+    "estimatedTime": 60,
+    "prerequisites": [],
+    "learningObjectives": [],
+    "order": 4
+  },
+  "instructions": "Press $ to jump to the last character of the current line.",
+  "initialContent": [
+    "2026-10-07 INFO deployment completed successfully",
+    "2026-10-07 INFO health check passed"
+  ],
+  "target": {
+    "row": 0,
+    "col": 48
+  },
+  "focusCommand": "$",
+  "initialCursor": {
+    "row": 0,
+    "col": 0
+  },
+  "solution": [
+    "$"
+  ]
+}
