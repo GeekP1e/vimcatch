@@ -74,6 +74,8 @@ in **My lessons**, stay saved across reloads and can be deleted individually.
 ## Quick start
 
 ```bash
+git clone https://github.com/GeekP1e/vimcatch.git
+cd vimcatch
 npm ci
 npm run check
 npm start
