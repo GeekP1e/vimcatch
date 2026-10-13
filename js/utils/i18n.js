@@ -1,4 +1,5 @@
 const messages = {
+    supportCoffee: ['☕ Buy me a coffee', '☕ На кофе', '☕ 请我喝杯咖啡', '☕ Invítame a un café'],
     practiceCommand: ['./practice', './практика', './练习', './práctica'],
     trainCommand: ['./train', './обучение', './学习', './aprendizaje'],
     cheatsCommand: ['./cheats', './справочник', './命令参考', './referencia'],

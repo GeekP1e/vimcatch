@@ -118,6 +118,14 @@ npm run test:golden
 npm test
 ```
 
+## Support VimCatch
+
+If VimCatch helped you, you can [buy me a coffee on Boosty](https://boosty.to/geekpie)
+☕ Your support helps me keep developing this free, open-source project.
+
+Если VimCatch пригодился, можно [угостить меня кофе на Boosty](https://boosty.to/geekpie)
+☕ Спасибо за поддержку разработки!
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for setup and contribution guidelines.
