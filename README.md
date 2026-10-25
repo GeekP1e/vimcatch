@@ -10,6 +10,9 @@ reference.
 
 ## About this project
 
+VimCatch is an independent Vim command trainer. It is not affiliated with the
+Vim project.
+
 VimCatch is a modified version of [VIM Master](https://github.com/renzorlive/vimmaster),
 originally created by [RNZ / renzorlive](https://github.com/renzorlive).
 
