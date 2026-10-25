@@ -52,7 +52,7 @@ function safeParse(raw) {
 }
 
 function loadState() {
-    let raw = null;
+    let raw;
     try {
         raw = localStorage.getItem(STORAGE_KEY);
     } catch {

@@ -84,7 +84,7 @@ npm run check
 npm start
 ```
 
-The local server runs at `http://localhost:5180/`. Node.js 22.12 or newer is
+The local server runs at `http://localhost:5180/`. Node.js 22.13 or newer is
 required.
 
 ## Content

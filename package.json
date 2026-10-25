@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "start": "vite",
@@ -22,14 +22,14 @@
     "check": "node scripts/build-content.js && npm run build:css && eslint . && node tests/contract/runner.js && node tests/golden/runner.js && vitest run && vite build"
   },
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
-    "@tailwindcss/cli": "4.3.0",
-    "eslint": "^9.6.0",
-    "globals": "^15.8.0",
-    "happy-dom": "^21.0.1",
-    "prettier": "^3.3.2",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/cli": "^4.3.3",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "happy-dom": "^21.0.4",
+    "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.3.4",
-    "vitest": "^5.0.3"
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
   }
 }

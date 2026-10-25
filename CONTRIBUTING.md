@@ -2,7 +2,7 @@
 
 ## Local setup
 
-Use Node.js 22.12 or newer:
+Use Node.js 22.13 or newer:
 
 ```bash
 npm ci

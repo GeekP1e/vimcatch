@@ -61,7 +61,7 @@ class ProgressSystem {
             return this.exportPrefix + base64String;
         } catch (error) {
             logger.error(CATEGORIES.PROGRESS, 'Export failed', { error: error.message });
-            throw new Error('Failed to export progress data');
+            throw new Error('Failed to export progress data', { cause: error });
         }
     }
 
@@ -310,7 +310,7 @@ class ProgressSystem {
      * @returns {{loaded: boolean, repaired: boolean, message: string|null}}
      */
     autoLoadProgress() {
-        let raw = null;
+        let raw;
         try {
             raw = localStorage.getItem(this.storageKey);
         } catch (error) {
